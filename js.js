@@ -189,10 +189,10 @@ sections.forEach(section => observer.observe(section));
 // ============================================================
 const HEADER_TAB_POSITIONS = {
   home: 0,
-  about: -20,
-  services: 10,
-  testimonials: -10,
-  contact: 5
+  about: 20,
+  services: 20,
+  testimonials: 20,
+  contact: 20
 };
 
 
@@ -241,3 +241,31 @@ const HEADER_TAB_POSITIONS = {
 })();
 
 
+
+
+// Mobile menu polish
+(() => {
+  const menu = document.getElementById('mainNav');
+  const button = document.getElementById('mobileMenuButton');
+
+  if (!menu || !button) return;
+
+  const closeMenu = () => {
+    menu.classList.remove('open');
+    button.setAttribute('aria-expanded', 'false');
+  };
+
+  document.addEventListener('click', event => {
+    if (!menu.classList.contains('open')) return;
+    if (menu.contains(event.target) || button.contains(event.target)) return;
+    closeMenu();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 760) closeMenu();
+  });
+
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+})();
