@@ -189,10 +189,10 @@ sections.forEach(section => observer.observe(section));
 // ============================================================
 const HEADER_TAB_POSITIONS = {
   home: 0,
-  about: 20,
-  services: 20,
-  testimonials: 20,
-  contact: 20
+  about: -20,
+  services: -60,
+  testimonials: -10,
+  contact: 5
 };
 
 
