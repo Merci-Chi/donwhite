@@ -5736,35 +5736,40 @@ textarea {
 
 
 /* =========================================================
-   SERVICE CARDS — REFERENCE CURVE
-   Single active curve system. High on the left, sweeping lower on the right.
+   SERVICE CARDS — SINGLE CLEAN CURVE SYSTEM
+   No white gap: the image extends underneath the curved color layer.
+   Overall card size and content placement stay the same.
    ========================================================= */
 .services-card-grid .service-card {
   overflow: hidden;
-  border-radius: 14px;
+  border-radius: 13px;
 }
 
 .services-card-grid .service-card > img {
   width: 100%;
-  height: 178px;
-  flex: 0 0 178px;
-  object-fit: cover;
+  height: 204px;
+  flex: 0 0 204px;
   display: block;
   margin: 0;
-  clip-path: none;
-  -webkit-clip-path: none;
+  object-fit: cover;
+  object-position: center 50%;
 }
+
+.services-card-grid .service-card:nth-child(1) > img { object-position: center 54%; }
+.services-card-grid .service-card:nth-child(2) > img { object-position: center 38%; }
+.services-card-grid .service-card:nth-child(3) > img { object-position: center 52%; }
+.services-card-grid .service-card:nth-child(4) > img { object-position: center 52%; }
+.services-card-grid .service-card:nth-child(5) > img { object-position: center 48%; }
+.services-card-grid .service-card:nth-child(6) > img { object-position: center 56%; }
 
 .services-card-grid .service-card-body {
   position: relative;
   z-index: 2;
   flex: 1;
-  min-height: 210px;
-  margin-top: -66px;
-  padding: 82px 22px 20px;
+  min-height: 188px;
+  margin-top: -100px;
+  padding: 88px 18px 18px;
   overflow: hidden;
-
-  /* Exact visual direction from the reference screenshot. */
   clip-path: polygon(
     0% 0%,
     5% 0.3%,
@@ -5824,146 +5829,480 @@ textarea {
 
 @media (max-width: 1180px) {
   .services-card-grid .service-card > img {
-    height: 162px;
-    flex-basis: 162px;
-  }
-
-  .services-card-grid .service-card-body {
-    min-height: 198px;
-    margin-top: -58px;
-    padding-top: 72px;
-  }
-}
-
-@media (max-width: 760px) {
-  .services-card-grid .service-card > img {
-    height: 120px;
-    flex-basis: 120px;
-  }
-
-  .services-card-grid .service-card-body {
-    min-height: 174px;
-    margin-top: -43px;
-    padding: 55px 14px 14px;
-  }
-}
-
-
-/* =========================================================
-   SMALLER SERVICE CARDS
-   Keeps the same curve direction, just scales the cards down.
-   ========================================================= */
-.services-card-grid {
-  gap: 14px;
-}
-
-.services-card-grid .service-card {
-  border-radius: 13px;
-}
-
-.services-card-grid .service-card > img {
-  height: 162px;
-  flex: 0 0 162px;
-}
-
-.services-card-grid .service-card-body {
-  min-height: 188px;
-  margin-top: -58px;
-  padding: 72px 18px 18px;
-}
-
-.services-card-grid .service-card h3 {
-  font-size: clamp(19px, 1.65vw, 24px);
-}
-
-.services-card-grid .service-accent {
-  width: 36px;
-  margin: 10px 0 13px;
-}
-
-.services-card-grid .service-card ul {
-  gap: 9px;
-}
-
-.services-card-grid .service-card li {
-  padding-left: 25px;
-  font-size: 13px;
-  line-height: 1.2;
-}
-
-.services-card-grid .service-card li::before {
-  width: 17px;
-  height: 17px;
-  font-size: 10px;
-}
-
-@media (max-width: 1180px) {
-  .services-card-grid .service-card > img {
-    height: 148px;
-    flex-basis: 148px;
+    height: 188px;
+    flex-basis: 188px;
   }
 
   .services-card-grid .service-card-body {
     min-height: 180px;
-    margin-top: -53px;
-    padding: 66px 17px 17px;
-  }
-
-  .services-card-grid .service-card h3 {
-    font-size: clamp(18px, 1.75vw, 22px);
-  }
-
-  .services-card-grid .service-card li {
-    font-size: 12.5px;
+    margin-top: -93px;
+    padding: 80px 17px 17px;
   }
 }
 
 @media (max-width: 760px) {
-  .services-card-grid {
-    gap: 10px;
-  }
-
   .services-card-grid .service-card > img {
-    height: 108px;
-    flex-basis: 108px;
+    height: 146px;
+    flex-basis: 146px;
   }
 
   .services-card-grid .service-card-body {
     min-height: 156px;
-    margin-top: -38px;
-    padding: 48px 12px 12px;
-  }
-
-  .services-card-grid .service-card h3 {
-    font-size: 15px;
-  }
-
-  .services-card-grid .service-accent {
-    width: 28px;
-    margin: 8px 0 10px;
-  }
-
-  .services-card-grid .service-card ul {
-    gap: 7px;
-  }
-
-  .services-card-grid .service-card li {
-    font-size: 10.5px;
-    padding-left: 20px;
-  }
-
-  .services-card-grid .service-card li::before {
-    width: 14px;
-    height: 14px;
-    font-size: 8px;
+    margin-top: -76px;
+    padding: 60px 12px 12px;
   }
 }
-
 
 /* Slightly taller desktop hero only */
 @media (min-width: 761px) {
   .compact-hero,
   .compact-hero-content {
     min-height: 295px !important;
+  }
+}
+
+
+/* =========================================================
+   SHORTER SERVICE CARDS
+   Keeps the same curve system, just reduces overall card height.
+   ========================================================= */
+.services-card-grid .service-card > img {
+  height: 192px !important;
+  flex: 0 0 192px !important;
+}
+
+.services-card-grid .service-card-body {
+  min-height: 176px !important;
+  margin-top: -94px !important;
+  padding: 82px 18px 16px !important;
+}
+
+.services-card-grid .service-card ul {
+  gap: 8px !important;
+}
+
+.services-card-grid .service-card li {
+  line-height: 1.18 !important;
+}
+
+@media (max-width: 1180px) {
+  .services-card-grid .service-card > img {
+    height: 176px !important;
+    flex-basis: 176px !important;
+  }
+
+  .services-card-grid .service-card-body {
+    min-height: 168px !important;
+    margin-top: -86px !important;
+    padding: 74px 17px 15px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .services-card-grid .service-card > img {
+    height: 136px !important;
+    flex-basis: 136px !important;
+  }
+
+  .services-card-grid .service-card-body {
+    min-height: 146px !important;
+    margin-top: -68px !important;
+    padding: 54px 12px 12px !important;
+  }
+}
+
+/* =========================================================
+   SERVICE CARD IMAGE GAP FIX
+   Extend each photo farther underneath the curved body while
+   preserving the card's overall height and content position.
+   ========================================================= */
+.services-card-grid .service-card > img {
+  height: 232px !important;
+  flex: 0 0 232px !important;
+}
+
+.services-card-grid .service-card-body {
+  margin-top: -134px !important;
+}
+
+@media (max-width: 1180px) {
+  .services-card-grid .service-card > img {
+    height: 216px !important;
+    flex-basis: 216px !important;
+  }
+
+  .services-card-grid .service-card-body {
+    margin-top: -126px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .services-card-grid .service-card > img {
+    height: 176px !important;
+    flex-basis: 176px !important;
+  }
+
+  .services-card-grid .service-card-body {
+    margin-top: -108px !important;
+  }
+}
+
+/* =========================================================
+   FINAL OVERRIDE — SHORTER FULL SERVICE CARDS
+   Keeps the photos lowered under the curve, but trims the
+   total card height by tightening the colored content area.
+   ========================================================= */
+.services-card-grid .service-card-body {
+  min-height: 158px !important;
+  margin-top: -138px !important;
+  padding: 72px 18px 12px !important;
+}
+
+.services-card-grid .service-accent {
+  margin: 9px 0 11px !important;
+}
+
+.services-card-grid .service-card ul {
+  gap: 6px !important;
+}
+
+@media (max-width: 1180px) {
+  .services-card-grid .service-card-body {
+    min-height: 154px !important;
+    margin-top: -130px !important;
+    padding: 68px 17px 12px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .services-card-grid .service-card-body {
+    min-height: 134px !important;
+    margin-top: -112px !important;
+    padding: 50px 12px 10px !important;
+  }
+
+  .services-card-grid .service-accent {
+    margin: 7px 0 9px !important;
+  }
+
+  .services-card-grid .service-card ul {
+    gap: 5px !important;
+  }
+}
+
+/* =========================================================
+   FINAL OVERRIDE — MUCH SHORTER SERVICE CARDS
+   Compresses the full card substantially while keeping the
+   image underneath the curved color section with no gap.
+   ========================================================= */
+.services-card-grid .service-card > img {
+  height: 198px !important;
+  flex: 0 0 198px !important;
+}
+
+.services-card-grid .service-card-body {
+  min-height: 136px !important;
+  margin-top: -124px !important;
+  padding: 58px 14px 10px !important;
+}
+
+.services-card-grid .service-card h3 {
+  font-size: clamp(20px, 1.55vw, 24px) !important;
+  line-height: .92 !important;
+}
+
+.services-card-grid .service-accent {
+  width: 38px !important;
+  margin: 7px 0 8px !important;
+}
+
+.services-card-grid .service-card ul {
+  gap: 4px !important;
+}
+
+.services-card-grid .service-card li {
+  padding-left: 24px !important;
+  font-size: 13px !important;
+  line-height: 1.12 !important;
+}
+
+.services-card-grid .service-card li::before {
+  width: 17px !important;
+  height: 17px !important;
+  font-size: 10px !important;
+}
+
+@media (max-width: 1180px) {
+  .services-card-grid .service-card > img {
+    height: 184px !important;
+    flex-basis: 184px !important;
+  }
+
+  .services-card-grid .service-card-body {
+    min-height: 132px !important;
+    margin-top: -116px !important;
+    padding: 54px 13px 10px !important;
+  }
+
+  .services-card-grid .service-card h3 {
+    font-size: 20px !important;
+  }
+
+  .services-card-grid .service-card li {
+    font-size: 12.5px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .services-card-grid .service-card > img {
+    height: 150px !important;
+    flex-basis: 150px !important;
+  }
+
+  .services-card-grid .service-card-body {
+    min-height: 118px !important;
+    margin-top: -94px !important;
+    padding: 42px 11px 9px !important;
+  }
+
+  .services-card-grid .service-card h3 {
+    font-size: 19px !important;
+  }
+
+  .services-card-grid .service-accent {
+    margin: 6px 0 7px !important;
+  }
+
+  .services-card-grid .service-card ul {
+    gap: 3px !important;
+  }
+
+  .services-card-grid .service-card li {
+    padding-left: 22px !important;
+    font-size: 12px !important;
+  }
+
+  .services-card-grid .service-card li::before {
+    width: 16px !important;
+    height: 16px !important;
+  }
+}
+
+/* =========================================================
+   FINAL OVERRIDE — SAME CARD SIZE, BETTER TEXT FIT
+   Keeps the current card/image/body dimensions unchanged.
+   Only refines typography and spacing inside the cards.
+   ========================================================= */
+
+.services-card-grid .service-card-body {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
+
+.services-card-grid .service-card h3 {
+  font-size: clamp(18px, 1.35vw, 22px) !important;
+  line-height: .9 !important;
+  letter-spacing: -0.035em !important;
+  margin: 0 !important;
+}
+
+.services-card-grid .service-accent {
+  margin: 5px 0 6px !important;
+}
+
+.services-card-grid .service-card ul {
+  margin: 0 !important;
+  gap: 2px !important;
+}
+
+.services-card-grid .service-card li {
+  padding-left: 21px !important;
+  font-size: 12px !important;
+  line-height: 1.06 !important;
+  letter-spacing: -0.015em !important;
+}
+
+.services-card-grid .service-card li::before {
+  width: 16px !important;
+  height: 16px !important;
+  font-size: 9px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+@media (max-width: 1180px) {
+  .services-card-grid .service-card h3 {
+    font-size: 18px !important;
+  }
+
+  .services-card-grid .service-card li {
+    font-size: 11.5px !important;
+    padding-left: 20px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .services-card-grid .service-card h3 {
+    font-size: 18px !important;
+    line-height: .92 !important;
+  }
+
+  .services-card-grid .service-card li {
+    font-size: 11.5px !important;
+    line-height: 1.08 !important;
+  }
+}
+
+/* =========================================================
+   FINAL SERVICE CARD MATCH — short reference mockup
+   ========================================================= */
+.services-card-grid {
+  gap: 16px !important;
+}
+
+.services-card-grid .service-card {
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 20px rgba(31, 32, 24, .14) !important;
+}
+
+.services-card-grid .service-card > img {
+  width: 100% !important;
+  height: 190px !important;
+  flex: 0 0 190px !important;
+  object-fit: cover !important;
+  margin: 0 !important;
+}
+
+.services-card-grid .service-card-body {
+  min-height: 122px !important;
+  margin-top: -108px !important;
+  padding: 53px 15px 10px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
+
+.services-card-grid .service-card h3 {
+  margin: 0 !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: clamp(17px, 1.3vw, 21px) !important;
+  line-height: .92 !important;
+  letter-spacing: -.035em !important;
+}
+
+.services-card-grid .service-accent {
+  width: 31px !important;
+  height: 2px !important;
+  margin: 6px 0 7px !important;
+}
+
+.services-card-grid .service-card ul {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  gap: 3px !important;
+}
+
+.services-card-grid .service-card li {
+  padding-left: 20px !important;
+  font-size: 11.5px !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.012em !important;
+  white-space: normal !important;
+}
+
+.services-card-grid .service-card li::before {
+  width: 15px !important;
+  height: 15px !important;
+  font-size: 9px !important;
+  left: 0 !important;
+  top: 50% !important;
+  translate: 0 -50% !important;
+  transform: none !important;
+}
+
+@media (max-width: 1180px) {
+  .services-card-grid .service-card > img {
+    height: 178px !important;
+    flex-basis: 178px !important;
+  }
+
+  .services-card-grid .service-card-body {
+    min-height: 118px !important;
+    margin-top: -100px !important;
+    padding: 50px 13px 9px !important;
+  }
+
+  .services-card-grid .service-card h3 {
+    font-size: 17px !important;
+  }
+
+  .services-card-grid .service-card li {
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .services-card-grid .service-card > img {
+    height: 148px !important;
+    flex-basis: 148px !important;
+  }
+
+  .services-card-grid .service-card-body {
+    min-height: 112px !important;
+    margin-top: -82px !important;
+    padding: 43px 12px 9px !important;
+  }
+
+  .services-card-grid .service-card h3 {
+    font-size: 17px !important;
+  }
+
+  .services-card-grid .service-card li {
+    font-size: 11px !important;
+    line-height: 1.08 !important;
+  }
+}
+
+/* =========================================================
+   FINAL SERVICE CARD TEXT POSITION + SPACING
+   Keeps card size/shape unchanged.
+   Moves text upward and adds more vertical spacing.
+   ========================================================= */
+.services-card-grid .service-card-body {
+  padding-top: 45px !important;
+}
+
+.services-card-grid .service-accent {
+  margin: 7px 0 9px !important;
+}
+
+.services-card-grid .service-card ul {
+  gap: 6px !important;
+}
+
+.services-card-grid .service-card li {
+  line-height: 1.18 !important;
+}
+
+@media (max-width: 1180px) {
+  .services-card-grid .service-card-body {
+    padding-top: 43px !important;
+  }
+
+  .services-card-grid .service-card ul {
+    gap: 5px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .services-card-grid .service-card-body {
+    padding-top: 37px !important;
+  }
+
+  .services-card-grid .service-card ul {
+    gap: 5px !important;
   }
 }
