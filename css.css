@@ -5958,3 +5958,12 @@ textarea {
     font-size: 8px;
   }
 }
+
+
+/* Slightly taller desktop hero only */
+@media (min-width: 761px) {
+  .compact-hero,
+  .compact-hero-content {
+    min-height: 295px !important;
+  }
+}
