@@ -6588,3 +6588,289 @@ textarea {
     font-size: 23px !important;
   }
 }
+
+/* =========================================================
+   ABSOLUTE FINAL MOBILE PROCESS LAYOUT
+   Forces ONE full-width card per row on phones.
+   ========================================================= */
+@media screen and (max-width: 760px) {
+
+  .process-section,
+  .process-section .site-width,
+  .process-layout,
+  .process-copy {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .process-section {
+    padding: 18px 14px 24px !important;
+    overflow: hidden !important;
+  }
+
+  .process-layout {
+    display: block !important;
+    grid-template-columns: none !important;
+  }
+
+  .process-copy {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* FLEX instead of grid so older grid rules cannot make 2 columns */
+  .process-steps {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+
+    gap: 14px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    grid-template-columns: none !important;
+    grid-template-rows: none !important;
+  }
+
+  .process-arrow {
+    display: none !important;
+  }
+
+  .step-item {
+    flex: 0 0 auto !important;
+    display: grid !important;
+    grid-template-columns: 76px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    min-height: 136px !important;
+    height: auto !important;
+
+    column-gap: 18px !important;
+    row-gap: 7px !important;
+    align-items: center !important;
+
+    position: relative !important;
+    margin: 0 !important;
+    padding: 20px 18px !important;
+    box-sizing: border-box !important;
+
+    border: 2px solid rgba(100, 155, 99, .72) !important;
+    border-radius: 18px !important;
+    background: linear-gradient(115deg, #123821 0%, #082315 100%) !important;
+    overflow: hidden !important;
+    text-align: left !important;
+  }
+
+  /* vertical divider */
+  .step-item::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 107px !important;
+    top: 20px !important;
+    bottom: 20px !important;
+    width: 1px !important;
+    height: auto !important;
+    background: rgba(112, 163, 111, .42) !important;
+  }
+
+  .step-badge {
+    position: absolute !important;
+    top: 12px !important;
+    left: 56px !important;
+    transform: translateX(-50%) !important;
+    z-index: 4 !important;
+
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 999px !important;
+
+    background: #e6bd57 !important;
+    color: #142418 !important;
+    font-size: 16px !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+  }
+
+  .step-icon {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+
+    width: 62px !important;
+    height: 62px !important;
+    min-width: 62px !important;
+    min-height: 62px !important;
+
+    margin: 20px auto 0 !important;
+    padding: 12px !important;
+    box-sizing: border-box !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    border: 2px solid #dcb354 !important;
+    border-radius: 50% !important;
+    color: #dcb354 !important;
+  }
+
+  .step-icon .bi,
+  .step-icon .bi::before {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 26px !important;
+    line-height: 1 !important;
+    color: #dcb354 !important;
+  }
+
+  .step-item h3 {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+
+    align-self: end !important;
+    margin: 0 !important;
+    padding: 0 0 9px !important;
+
+    position: relative !important;
+    color: #fff4d7 !important;
+
+    font-size: 19px !important;
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+    text-align: left !important;
+
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .step-item h3::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    bottom: 0 !important;
+
+    width: 44px !important;
+    height: 2px !important;
+    border-radius: 999px !important;
+    background: #dcb354 !important;
+  }
+
+  .step-item p {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+
+    align-self: start !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    color: rgba(255, 246, 216, .91) !important;
+    font-size: 13.5px !important;
+    line-height: 1.42 !important;
+    text-align: left !important;
+
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .process-photo {
+    display: none !important;
+  }
+}
+
+/* Extra-small phones */
+@media screen and (max-width: 390px) {
+  .process-section {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .step-item {
+    grid-template-columns: 66px minmax(0, 1fr) !important;
+    column-gap: 14px !important;
+    padding: 18px 14px !important;
+  }
+
+  .step-item::before {
+    left: 92px !important;
+  }
+
+  .step-badge {
+    left: 48px !important;
+  }
+
+  .step-icon {
+    width: 54px !important;
+    height: 54px !important;
+    min-width: 54px !important;
+    min-height: 54px !important;
+    padding: 10px !important;
+  }
+
+  .step-item h3 {
+    font-size: 17px !important;
+  }
+
+  .step-item p {
+    font-size: 12.5px !important;
+  }
+}
+
+/* =========================================================
+   PROJECTS GRID — 6 TOTAL IMAGES
+   ========================================================= */
+.projects-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+
+.projects-grid img {
+  height: 145px !important;
+}
+
+@media (max-width: 1100px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .projects-grid img {
+    height: 120px !important;
+  }
+}
