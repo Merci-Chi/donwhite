@@ -6306,3 +6306,285 @@ textarea {
     gap: 5px !important;
   }
 }
+
+/* =========================================================
+   FINAL MOBILE PROCESS FIX
+   Full-width readable cards on phones.
+   Desktop/tablet process styling remains unchanged.
+   ========================================================= */
+@media (max-width: 760px) {
+  .process-section {
+    padding: 16px 0 22px !important;
+    overflow: hidden !important;
+  }
+
+  .process-layout {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .process-copy {
+    width: 100% !important;
+    padding: 0 16px !important;
+  }
+
+  .process-steps {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 12px !important;
+    width: 100% !important;
+    min-height: 0 !important;
+  }
+
+  .process-arrow {
+    display: none !important;
+  }
+
+  .step-item {
+    position: relative !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 150px !important;
+    height: auto !important;
+
+    display: grid !important;
+    grid-template-columns: 86px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 20px !important;
+    row-gap: 8px !important;
+    align-items: center !important;
+
+    padding: 22px 18px 20px !important;
+    margin: 0 !important;
+    text-align: left !important;
+
+    overflow: hidden !important;
+    border: 2px solid rgba(104, 158, 103, 0.72) !important;
+    border-radius: 18px !important;
+    background: linear-gradient(110deg, rgba(18, 54, 31, 0.96), rgba(7, 28, 17, 0.98)) !important;
+  }
+
+  .step-item::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 24px !important;
+    bottom: 22px !important;
+    left: 118px !important;
+    width: 1px !important;
+    height: auto !important;
+    background: rgba(116, 167, 116, 0.45) !important;
+  }
+
+  .step-badge {
+    position: absolute !important;
+    top: 12px !important;
+    left: 60px !important;
+    transform: translateX(-50%) !important;
+    z-index: 3 !important;
+
+    width: 34px !important;
+    height: 34px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: grid !important;
+    place-items: center !important;
+
+    border-radius: 50% !important;
+    background: #e0b95f !important;
+    color: #172517 !important;
+    font-size: 16px !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+  }
+
+  .step-icon {
+    grid-column: 1 !important;
+    grid-row: 1 / 3 !important;
+    align-self: center !important;
+
+    width: 66px !important;
+    height: 66px !important;
+    margin: 18px auto 0 !important;
+    padding: 13px !important;
+
+    display: grid !important;
+    place-items: center !important;
+    border: 1.5px solid rgba(223, 185, 95, 0.9) !important;
+    border-radius: 50% !important;
+    color: #d7b360 !important;
+  }
+
+  .step-icon .bi {
+    display: block !important;
+    font-size: 28px !important;
+    line-height: 1 !important;
+  }
+
+  .step-item h3 {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    align-self: end !important;
+
+    position: relative !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 0 10px !important;
+
+    font-size: 19px !important;
+    line-height: 1.08 !important;
+    font-weight: 800 !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    color: #fff5d8 !important;
+  }
+
+  .step-item h3::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 42px !important;
+    height: 2px !important;
+    border-radius: 999px !important;
+    background: #d7b360 !important;
+  }
+
+  .step-item p {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    align-self: start !important;
+
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    text-align: left !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    color: rgba(255, 246, 216, 0.9) !important;
+  }
+
+  .process-photo {
+    display: none !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .process-copy {
+    padding: 0 12px !important;
+  }
+
+  .step-item {
+    grid-template-columns: 74px minmax(0, 1fr) !important;
+    column-gap: 16px !important;
+    padding: 20px 14px 18px !important;
+  }
+
+  .step-item::before {
+    left: 101px !important;
+  }
+
+  .step-badge {
+    left: 51px !important;
+  }
+
+  .step-icon {
+    width: 58px !important;
+    height: 58px !important;
+    padding: 11px !important;
+  }
+
+  .step-icon .bi {
+    font-size: 25px !important;
+  }
+
+  .step-item h3 {
+    font-size: 17px !important;
+  }
+
+  .step-item p {
+    font-size: 12.5px !important;
+  }
+}
+
+/* =========================================================
+   MOBILE ICON FALLBACK
+   Replaces Bootstrap icon-font glyphs on mobile so Safari
+   never shows empty squares if the icon font fails to load.
+   ========================================================= */
+@media (max-width: 760px) {
+  .bi {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI Symbol",
+                 "Arial Unicode MS", Arial, sans-serif !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    speak: none;
+  }
+
+  .bi::before {
+    display: inline-block !important;
+    font-family: inherit !important;
+    font-style: normal !important;
+    font-weight: inherit !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
+  }
+
+  /* Search / arrows */
+  .bi-search::before { content: "⌕" !important; }
+  .bi-chevron-left::before { content: "‹" !important; }
+  .bi-chevron-right::before { content: "›" !important; }
+
+  /* Process icons */
+  .bi-chat-square-text::before { content: "✉" !important; }
+  .bi-clipboard2-check::before,
+  .bi-clipboard-check::before { content: "✓" !important; }
+  .bi-tools::before { content: "⚒" !important; }
+  .bi-flower1::before,
+  .bi-flower2::before { content: "✦" !important; }
+
+  /* General site icons */
+  .bi-award::before { content: "★" !important; }
+  .bi-tree::before { content: "♣" !important; }
+  .bi-shield-check::before { content: "✓" !important; }
+  .bi-calendar3::before { content: "▣" !important; }
+  .bi-geo-alt-fill::before { content: "●" !important; }
+  .bi-telephone-fill::before { content: "☎" !important; }
+  .bi-paperclip::before { content: "⌕" !important; transform: rotate(-35deg); }
+  .bi-droplet-fill::before { content: "◆" !important; }
+  .bi-lightbulb-fill::before { content: "●" !important; }
+  .bi-grid-3x3-gap-fill::before { content: "▦" !important; }
+  .bi-trash3-fill::before { content: "⌫" !important; }
+  .bi-three-dots::before { content: "•••" !important; letter-spacing: 1px; }
+
+  /* Social icons — text fallback instead of blank squares */
+  .bi-instagram::before { content: "◎" !important; }
+  .bi-facebook::before { content: "f" !important; font-family: Arial, sans-serif !important; }
+  .bi-google::before { content: "G" !important; font-family: Arial, sans-serif !important; }
+
+  /* Keep process icons centered and visible */
+  .step-icon .bi,
+  .step-icon .bi::before {
+    display: grid !important;
+    place-items: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    color: #d7b360 !important;
+  }
+
+  .step-icon .bi::before {
+    font-size: 28px !important;
+  }
+
+  .site-search button .bi::before {
+    color: #fff !important;
+    font-size: 23px !important;
+  }
+}
