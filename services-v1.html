@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="Desert Forest Landscape offers complete landscaping solutions in Las Vegas, from lawn care and tree services to pavers, irrigation, and lighting." />
+  <meta name="theme-color" content="#123b2a" />
+  <title>Services | Desert Forest Landscape</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css-pages-v1.css" />
+
+  <script>
+    // Force a true refresh to start at the top of the page.
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    const navEntry = performance.getEntriesByType('navigation')[0];
+    const isReload = navEntry && navEntry.type === 'reload';
+
+    if (isReload && window.location.hash) {
+      history.replaceState(
+        null,
+        '',
+        window.location.pathname + window.location.search
+      );
+    }
+
+    if (isReload) {
+      window.scrollTo(0, 0);
+
+      window.addEventListener('pageshow', () => {
+        window.scrollTo(0, 0);
+
+        requestAnimationFrame(() => {
+          window.scrollTo(0, 0);
+
+          requestAnimationFrame(() => {
+            window.scrollTo(0, 0);
+          });
+        });
+      });
+    }
+  </script>
+
+</head>
+<body class="brand-refresh page-services" data-page="services">
+  <header class="site-header">
+    <div class="header-inner shell-wide">
+      <a class="brand" href="home-v1.html" aria-label="Desert Forest Landscape home">
+        <img class="brand-logo" src="images/logo.png" alt="Desert Forest Landscape logo" />
+        <span class="brand-copy">
+          <img class="brand-text" src="images/text.png" alt="Desert Forest Landscape" />
+          <span class="brand-tagline-row">
+            <img class="brand-slogan" src="images/slogan.png" alt="Turning over a new leaf" />
+            <img class="brand-leaf" src="images/leaf.png" alt="" aria-hidden="true" />
+          </span>
+        </span>
+      </a>
+
+      <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary navigation">
+        <a href="home-v1.html" class="nav-link">Home</a>
+        <a href="about-v1.html" class="nav-link">About</a>
+        <a href="services-v1.html" class="nav-link active" aria-current="page">Services</a>
+        <a href="testimonials-v1.html" class="nav-link">Testimonials</a>
+        
+        <a href="contact-v1.html" class="nav-link">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="sub-header">
+    <div class="sub-header-inner shell-wide">
+      <a class="phone-link" href="tel:+17022419668">
+        <span>Call Us</span>
+        <strong>(702) 241-9668</strong>
+      </a>
+
+      <form class="site-search" role="search">
+        <input type="search" placeholder="Search..." aria-label="Search services" />
+        <button type="submit" aria-label="Search"><img src="icons/search.png" alt="" aria-hidden="true" style="width:20px;height:20px;object-fit:contain;"></button>
+      </form>
+    </div>
+  </div>
+
+  <main id="services" class="page-main">
+<section class="services-section" id="services">
+      <div class="site-width">
+        <div class="section-head">
+          <span class="eyebrow centered-eyebrow">OUR SERVICES</span>
+          <h2>Complete Landscaping Solutions</h2>
+        </div>
+
+        <div class="services-grid services-card-grid">
+          <article class="service-card service-card-blue searchable-card">
+            <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Professional lawn and garden maintenance" />
+            <div class="service-card-body">
+              <h3>Lawn &amp;<br>Yard Care</h3>
+              <span class="service-accent"></span>
+              <ul>
+                <li>Mowing &amp; Edging</li>
+                <li>Weed Control</li>
+                <li>Overseeding</li>
+                <li>Yard Cleanups</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="service-card service-card-cream searchable-card">
+            <img src="https://images.unsplash.com/photo-1734303023491-db8037a21f09?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Professional tree care service" />
+            <div class="service-card-body">
+              <h3>Tree<br>Services</h3>
+              <span class="service-accent"></span>
+              <ul>
+                <li>Tree Trimming</li>
+                <li>Tree Removal</li>
+                <li>Tree Planting</li>
+                <li>Stump Grinding</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="service-card service-card-olive searchable-card">
+            <img src="https://images.pexels.com/photos/15369750/pexels-photo-15369750.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="New residential landscape installation" />
+            <div class="service-card-body">
+              <h3>New<br>Landscaping</h3>
+              <span class="service-accent"></span>
+              <ul>
+                <li>Artificial Turf</li>
+                <li>Sod Installation</li>
+                <li>Plants, Trees &amp; Shrubs</li>
+                <li>Landscape Design</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="service-card service-card-rust searchable-card">
+            <img src="https://images.unsplash.com/photo-1597201278257-3687be27d954?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Landscaped patio and stone walkway" />
+            <div class="service-card-body">
+              <h3>Patios &amp;<br>Walkways</h3>
+              <span class="service-accent"></span>
+              <ul>
+                <li>Pavers</li>
+                <li>Walkways</li>
+                <li>Patios</li>
+                <li>Steps</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="service-card service-card-tan searchable-card">
+            <img src="https://images.unsplash.com/photo-1689728318937-17d24bc0a65c?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Garden construction and hardscaping" />
+            <div class="service-card-body">
+              <h3>Yard<br>Construction</h3>
+              <span class="service-accent"></span>
+              <ul>
+                <li>Retaining Walls</li>
+                <li>Concrete</li>
+                <li>Rock &amp; Gravel</li>
+                <li>Drainage Solutions</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="service-card service-card-blue searchable-card">
+            <img src="https://images.pexels.com/photos/17326319/pexels-photo-17326319.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Automatic lawn irrigation sprinkler" />
+            <div class="service-card-body">
+              <h3>Irrigation &amp;<br>Lighting</h3>
+              <span class="service-accent"></span>
+              <ul>
+                <li>Irrigation Systems</li>
+                <li>Drain Lines</li>
+                <li>12-Volt Lighting</li>
+                <li>Lighting Design</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+<div class="site-width process-heading process-heading-outside">
+      <span class="eyebrow">OUR PROCESS</span>
+      <h2>Simple. Clear. Stress-Free.</h2>
+    </div>
+<section class="process-section" id="process">
+      <div class="site-width process-layout">
+        <div class="process-copy">
+          <div class="process-steps">
+            <article class="step-item">
+              <span class="step-badge">1</span>
+              <div class="step-icon"><img src="icons/consultation.png" alt="" aria-hidden="true" style="width:100%;height:100%;object-fit:contain;"></div>
+              <h3>Free Consultation</h3>
+              <p>We meet with you, listen to your ideas, and assess your property.</p>
+            </article>
+            <div class="process-arrow">→</div>
+            <article class="step-item">
+              <span class="step-badge">2</span>
+              <div class="step-icon"><img src="icons/custom-plan.png" alt="" aria-hidden="true" style="width:100%;height:100%;object-fit:contain;"></div>
+              <h3>Custom Plan</h3>
+              <p>We create a detailed plan and provide a clear, upfront estimate.</p>
+            </article>
+            <div class="process-arrow">→</div>
+            <article class="step-item">
+              <span class="step-badge">3</span>
+              <div class="step-icon"><img src="icons/build-install.png" alt="" aria-hidden="true" style="width:100%;height:100%;object-fit:contain;"></div>
+              <h3>Build &amp; Install</h3>
+              <p>Our experienced team gets to work with care and precision.</p>
+            </article>
+            <div class="process-arrow">→</div>
+            <article class="step-item">
+              <span class="step-badge">4</span>
+              <div class="step-icon"><img src="icons/landscape.png" alt="" aria-hidden="true" style="width:100%;height:100%;object-fit:contain;"></div>
+              <h3>Enjoy Your Landscape</h3>
+              <p>Relax and enjoy a beautiful outdoor space built to last.</p>
+            </article>
+          </div>
+        </div>
+        <div class="process-photo"><img src="https://images.pexels.com/photos/8092383/pexels-photo-8092383.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Completed residential landscape project" /></div>
+      </div>
+    </section>
+<section class="projects-section" id="projects">
+      <div class="site-width">
+        <div class="projects-heading-row">
+          <div>
+            <span class="section-kicker">OUR WORK</span>
+            <h2 class="projects-heading">Recent Projects</h2>
+          </div>
+        </div>
+        <div class="projects-grid">
+          <img src="https://images.pexels.com/photos/8288955/pexels-photo-8288955.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Landscaped backyard and patio" />
+          <img src="https://images.pexels.com/photos/7546775/pexels-photo-7546775.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Modern home with a manicured lawn" />
+          <img src="https://images.pexels.com/photos/8031887/pexels-photo-8031887.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Wooden patio surrounded by greenery" />
+          <img src="https://images.pexels.com/photos/8031881/pexels-photo-8031881.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Landscaped front yard of a modern home" />
+          <img src="https://images.pexels.com/photos/38220905/pexels-photo-38220905.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Outdoor patio furniture in a garden" />
+        </div>
+        <div class="project-button-row"><a href="contact-v1.html" class="small-button center-button">VIEW MORE PROJECTS <img src="images/leaf.png" alt="" aria-hidden="true"></a></div>
+      </div>
+    </section>
+<section class="testimonials-section page-footer-shell" aria-label="Site information">
+  <div class="site-width">
+<footer class="mobile-footer-reference" aria-label="Desert Forest Landscape footer">
+          <div class="mobile-footer-hero">
+            <div class="mobile-footer-brand">
+              <img class="mobile-footer-logo" src="images/logo.png" alt="Desert Forest Landscape logo">
+              <div class="mobile-footer-title">DESERT FOREST<br>LANDSCAPE</div>
+              <div class="mobile-footer-tagline">TURNING OVER A NEW LEAF</div>
+            </div>
+            <p class="mobile-footer-about">Proudly serving the Las Vegas Valley with quality landscaping, tree care, and outdoor solutions built to last.</p>
+            <div class="mobile-footer-socials" aria-label="Social media">
+              <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="Google"><i class="bi bi-google"></i></a>
+            </div>
+          </div>
+
+          <div class="mobile-footer-section mobile-footer-areas">
+            <h3><img src="icons/location.png" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;"><span>SERVICE AREAS</span></h3>
+            <p>Las Vegas, Henderson, North Las Vegas, Summerlin, Spring Valley, Green Valley, Boulder City &amp; surrounding areas.</p>
+          </div>
+
+          <div class="mobile-footer-section mobile-footer-services-section">
+            <h3><i class="bi bi-flower1" aria-hidden="true"></i><span>SERVICES</span></h3>
+            <div class="mobile-footer-service-grid">
+              <div><i class="bi bi-flower2"></i><span>Lawn Care &amp; Maintenance</span></div>
+              <div><i class="bi bi-tree"></i><span>Tree Services</span></div>
+              <div><i class="bi bi-grid-3x3-gap-fill"></i><span>Pavers &amp; Hardscape</span></div>
+              <div><i class="bi bi-droplet-fill"></i><span>Irrigation</span></div>
+              <div><i class="bi bi-lightbulb-fill"></i><span>Landscape Lighting</span></div>
+              <div><i class="bi bi-flower1"></i><span>Artificial Turf</span></div>
+              <div><i class="bi bi-trash3-fill"></i><span>Yard Clean Ups</span></div>
+              <div><i class="bi bi-three-dots"></i><span>And More</span></div>
+            </div>
+          </div>
+
+          <div class="mobile-footer-contact-hours">
+            <div class="mobile-footer-contact-block">
+              <h3>CONTACT</h3>
+              <a href="tel:+17022419668"><img src="icons/phone.png" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;"><span>(702) 241-9668</span></a>
+              <p><img src="icons/location.png" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;"><span>Las Vegas Valley, Nevada</span></p>
+            </div>
+            <div class="mobile-footer-hours-block">
+              <h3>BUSINESS HOURS</h3>
+              <div><span>Mon–Fri</span><strong>7:00 AM – 6:00 PM</strong></div>
+              <div><span>Saturday</span><strong>8:00 AM – 2:00 PM</strong></div>
+              <div><span>Sunday</span><strong>Closed</strong></div>
+            </div>
+          </div>
+
+          <a class="mobile-footer-estimate" href="contact-v1.html"><img src="icons/estimate.png" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;"><span>GET A FREE ESTIMATE</span></a>
+
+          <div class="mobile-footer-bottom">
+            <p>© 2026 Desert Forest Landscape. All Rights Reserved.</p>
+            <div><a href="#">Privacy Policy</a><span>•</span><a href="#">Terms of Service</a></div>
+          </div>
+        </footer>
+<footer class="site-footer site-footer-expanded">
+          <div class="footer-main">
+            <div class="footer-brand-column">
+              <div class="footer-brand-lockup">
+                <img class="footer-logo" src="images/logo.png" alt="Desert Forest Landscape logo">
+                <div>
+                  <strong class="footer-brand-name">DESERT FOREST<br>LANDSCAPE</strong>
+                  <span class="footer-tagline">TURNING OVER A NEW LEAF</span>
+                </div>
+              </div>
+              <p class="footer-about">Proudly serving the Las Vegas Valley with quality landscaping, tree care, and outdoor solutions built to last.</p>
+              <div class="footer-socials footer-brand-socials" aria-label="Social media">
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" aria-label="Google"><i class="bi bi-google"></i></a>
+              </div>
+              <div class="footer-service-areas">
+                <h3>SERVICE AREAS</h3>
+                <p class="footer-service-area-copy">Las Vegas, Henderson, North Las Vegas, Summerlin, Spring Valley, Green Valley, Boulder City &amp; surrounding areas.</p>
+              </div>
+            </div>
+
+            <div class="footer-column footer-services">
+              <h3>SERVICES</h3>
+              <ul class="footer-list footer-services-list">
+                <li>Lawn Care &amp; Maintenance</li>
+                <li>Tree Services</li>
+                <li>Pavers &amp; Hardscape</li>
+                <li>Irrigation &amp; Sprinklers</li>
+                <li>Landscape Lighting</li>
+                <li>Artificial Turf</li>
+                <li>Yard Clean Ups</li>
+                <li>And More</li>
+              </ul>
+            </div>
+
+            <div class="footer-right-panel">
+              <div class="footer-right-top">
+                <div class="footer-column footer-contact-area">
+                  <h3>CONTACT</h3>
+                  <a class="footer-contact-link" href="tel:+17022419668"><img src="icons/phone.png" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;"><span>(702) 241-9668</span></a>
+                  <div class="footer-location"><img src="icons/location.png" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;"><span>Las Vegas Valley, Nevada</span></div>
+                </div>
+
+                <div class="footer-column footer-hours">
+                  <h3>BUSINESS HOURS</h3>
+                  <div class="hours-row"><span>Mon–Fri</span><strong>7:00 AM – 6:00 PM</strong></div>
+                  <div class="hours-row"><span>Saturday</span><strong>8:00 AM – 2:00 PM</strong></div>
+                  <div class="hours-row"><span>Sunday</span><strong>Closed</strong></div>
+                  <a class="footer-estimate-button" href="contact-v1.html">GET A FREE ESTIMATE</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <p>© 2026 Desert Forest Landscape. All Rights Reserved.</p>
+            <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+          </div>
+        </footer>
+  </div>
+</section>
+</main>
+
+  <script>
+    // Keep the site at its intended scale across touchpads, phones, and tablets.
+    document.addEventListener('gesturestart', (event) => event.preventDefault(), { passive: false });
+    document.addEventListener('gesturechange', (event) => event.preventDefault(), { passive: false });
+    document.addEventListener('gestureend', (event) => event.preventDefault(), { passive: false });
+
+    document.addEventListener('wheel', (event) => {
+      if (event.ctrlKey || event.metaKey) event.preventDefault();
+    }, { passive: false });
+
+    document.addEventListener('keydown', (event) => {
+      const zoomKey = ['+', '-', '=', '_', '0'].includes(event.key);
+      if ((event.ctrlKey || event.metaKey) && zoomKey) event.preventDefault();
+    });
+
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', (event) => {
+      const now = Date.now();
+      if (now - lastTouchEnd <= 300) event.preventDefault();
+      lastTouchEnd = now;
+    }, { passive: false });
+  </script>
+  <script src="js-pages-v1.js"></script>
+</body>
+</html>
