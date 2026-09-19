@@ -551,84 +551,108 @@
       leafIsFalling = true;
 
       const rect = mapleLeaf.getBoundingClientRect();
-
-      // Distance from the leaf's REAL position to the bottom of the screen
       const fallDistance = window.innerHeight - rect.bottom + 60;
 
       const animation = mapleLeaf.animate(
         [
           {
             transform:
-              'translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg)',
-            offset: 0
+              'translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)',
+            offset: 0,
+            easing: 'ease-out'
           },
 
+          /* slow drift right */
           {
             transform:
-              `translate3d(18px, ${fallDistance * 0.12}px, 0)
+              `translate3d(65px, ${fallDistance * 0.08}px, 0)
                rotateX(25deg)
-               rotateY(65deg)
-               rotateZ(20deg)`,
-            offset: 0.12
+               rotateY(80deg)
+               rotateZ(25deg)`,
+            offset: 0.14,
+            easing: 'ease-in-out'
           },
 
+          /* quicker swing left */
           {
             transform:
-              `translate3d(40px, ${fallDistance * 0.27}px, 0)
+              `translate3d(-75px, ${fallDistance * 0.22}px, 0)
                rotateX(70deg)
-               rotateY(140deg)
-               rotateZ(55deg)`,
-            offset: 0.27
+               rotateY(155deg)
+               rotateZ(-35deg)`,
+            offset: 0.25,
+            easing: 'ease-out'
           },
 
+          /* slow floating right */
           {
             transform:
-              `translate3d(5px, ${fallDistance * 0.43}px, 0)
-               rotateX(120deg)
-               rotateY(215deg)
-               rotateZ(95deg)`,
-            offset: 0.43
+              `translate3d(85px, ${fallDistance * 0.32}px, 0)
+               rotateX(115deg)
+               rotateY(235deg)
+               rotateZ(45deg)`,
+            offset: 0.42,
+            easing: 'ease-in-out'
           },
 
+          /* normal fall left */
           {
             transform:
-              `translate3d(-38px, ${fallDistance * 0.58}px, 0)
-               rotateX(175deg)
-               rotateY(300deg)
-               rotateZ(140deg)`,
-            offset: 0.58
+              `translate3d(-90px, ${fallDistance * 0.50}px, 0)
+               rotateX(165deg)
+               rotateY(325deg)
+               rotateZ(-55deg)`,
+            offset: 0.54,
+            easing: 'ease-out'
           },
 
+          /* hang in the air a little */
           {
             transform:
-              `translate3d(-12px, ${fallDistance * 0.72}px, 0)
-               rotateX(225deg)
-               rotateY(385deg)
-               rotateZ(190deg)`,
-            offset: 0.72
+              `translate3d(-35px, ${fallDistance * 0.57}px, 0)
+               rotateX(205deg)
+               rotateY(390deg)
+               rotateZ(-20deg)`,
+            offset: 0.67,
+            easing: 'ease-in-out'
           },
 
+          /* wider swing right */
           {
             transform:
-              `translate3d(35px, ${fallDistance * 0.86}px, 0)
-               rotateX(275deg)
-               rotateY(470deg)
-               rotateZ(245deg)`,
-            offset: 0.86
+              `translate3d(95px, ${fallDistance * 0.69}px, 0)
+               rotateX(255deg)
+               rotateY(485deg)
+               rotateZ(60deg)`,
+            offset: 0.78,
+            easing: 'ease-out'
           },
 
+          /* slow swing left again */
           {
             transform:
-              `translate3d(10px, ${fallDistance}px, 0)
-               rotateX(330deg)
-               rotateY(560deg)
-               rotateZ(300deg)`,
-            offset: 1
+              `translate3d(-80px, ${fallDistance * 0.80}px, 0)
+               rotateX(305deg)
+               rotateY(580deg)
+               rotateZ(-50deg)`,
+            offset: 0.90,
+            easing: 'ease-in-out'
+          },
+
+          /* final drop */
+          {
+            transform:
+              `translate3d(35px, ${fallDistance}px, 0)
+               rotateX(370deg)
+               rotateY(700deg)
+               rotateZ(30deg)`,
+            offset: 1,
+            easing: 'ease-in'
           }
         ],
         {
-          duration: 7500,
-          easing: 'linear'
+          duration: 9000,
+          fill: 'none'
         }
       );
 
@@ -642,8 +666,8 @@
     });
   }
 </script>
-  <script src="js.js"></script>
-</script>
+
+<script src="js.js"></script>
 
 </body>
 </html>
