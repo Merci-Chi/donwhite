@@ -554,106 +554,108 @@
       const fallDistance = window.innerHeight - rect.bottom + 60;
 
       const animation = mapleLeaf.animate(
-        [
-          {
-            transform:
-              'translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)',
-            offset: 0,
-            easing: 'ease-out'
-          },
-
-          /* slow drift right */
-          {
-            transform:
-              `translate3d(65px, ${fallDistance * 0.08}px, 0)
-               rotateX(25deg)
-               rotateY(80deg)
-               rotateZ(25deg)`,
-            offset: 0.14,
-            easing: 'ease-in-out'
-          },
-
-          /* quicker swing left */
-          {
-            transform:
-              `translate3d(-75px, ${fallDistance * 0.22}px, 0)
-               rotateX(70deg)
-               rotateY(155deg)
-               rotateZ(-35deg)`,
-            offset: 0.25,
-            easing: 'ease-out'
-          },
-
-          /* slow floating right */
-          {
-            transform:
-              `translate3d(85px, ${fallDistance * 0.32}px, 0)
-               rotateX(115deg)
-               rotateY(235deg)
-               rotateZ(45deg)`,
-            offset: 0.42,
-            easing: 'ease-in-out'
-          },
-
-          /* normal fall left */
-          {
-            transform:
-              `translate3d(-90px, ${fallDistance * 0.50}px, 0)
-               rotateX(165deg)
-               rotateY(325deg)
-               rotateZ(-55deg)`,
-            offset: 0.54,
-            easing: 'ease-out'
-          },
-
-          /* hang in the air a little */
-          {
-            transform:
-              `translate3d(-35px, ${fallDistance * 0.57}px, 0)
-               rotateX(205deg)
-               rotateY(390deg)
-               rotateZ(-20deg)`,
-            offset: 0.67,
-            easing: 'ease-in-out'
-          },
-
-          /* wider swing right */
-          {
-            transform:
-              `translate3d(95px, ${fallDistance * 0.69}px, 0)
-               rotateX(255deg)
-               rotateY(485deg)
-               rotateZ(60deg)`,
-            offset: 0.78,
-            easing: 'ease-out'
-          },
-
-          /* slow swing left again */
-          {
-            transform:
-              `translate3d(-80px, ${fallDistance * 0.80}px, 0)
-               rotateX(305deg)
-               rotateY(580deg)
-               rotateZ(-50deg)`,
-            offset: 0.90,
-            easing: 'ease-in-out'
-          },
-
-          /* final drop */
-          {
-            transform:
-              `translate3d(35px, ${fallDistance}px, 0)
-               rotateX(370deg)
-               rotateY(700deg)
-               rotateZ(30deg)`,
-            offset: 1,
-            easing: 'ease-in'
-          }
-        ],
+      [
         {
-          duration: 9000,
-          fill: 'none'
+          transform:
+            'translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)',
+          offset: 0
+        },
+
+        {
+          transform:
+            `translate3d(55px, ${fallDistance * 0.10}px, 0)
+            rotateX(35deg)
+            rotateY(75deg)
+            rotateZ(20deg)`,
+          offset: 0.10
+        },
+
+        {
+          transform:
+            `translate3d(95px, ${fallDistance * 0.20}px, 0)
+            rotateX(70deg)
+            rotateY(145deg)
+            rotateZ(40deg)`,
+          offset: 0.20
+        },
+
+        {
+          transform:
+            `translate3d(55px, ${fallDistance * 0.30}px, 0)
+            rotateX(105deg)
+            rotateY(220deg)
+            rotateZ(15deg)`,
+          offset: 0.30
+        },
+
+        {
+          transform:
+            `translate3d(-55px, ${fallDistance * 0.40}px, 0)
+            rotateX(145deg)
+            rotateY(300deg)
+            rotateZ(-25deg)`,
+          offset: 0.40
+        },
+
+        {
+          transform:
+            `translate3d(-95px, ${fallDistance * 0.50}px, 0)
+            rotateX(185deg)
+            rotateY(385deg)
+            rotateZ(-45deg)`,
+          offset: 0.50
+        },
+
+        {
+          transform:
+            `translate3d(-55px, ${fallDistance * 0.60}px, 0)
+            rotateX(225deg)
+            rotateY(465deg)
+            rotateZ(-20deg)`,
+          offset: 0.60
+        },
+
+        {
+          transform:
+            `translate3d(55px, ${fallDistance * 0.70}px, 0)
+            rotateX(265deg)
+            rotateY(545deg)
+            rotateZ(25deg)`,
+          offset: 0.70
+        },
+
+        {
+          transform:
+            `translate3d(95px, ${fallDistance * 0.80}px, 0)
+            rotateX(305deg)
+            rotateY(625deg)
+            rotateZ(45deg)`,
+          offset: 0.80
+        },
+
+        {
+          transform:
+            `translate3d(55px, ${fallDistance * 0.90}px, 0)
+            rotateX(345deg)
+            rotateY(705deg)
+            rotateZ(20deg)`,
+          offset: 0.90
+        },
+
+        {
+          transform:
+            `translate3d(0px, ${fallDistance}px, 0)
+            rotateX(390deg)
+            rotateY(800deg)
+            rotateZ(0deg)`,
+          offset: 1
         }
+      ],
+      {
+        duration: 9000,
+        easing: 'cubic-bezier(0.37, 0, 0.63, 1)',
+        fill: 'none'
+      }
       );
 
       animation.onfinish = function () {
