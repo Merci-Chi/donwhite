@@ -58,6 +58,20 @@
       .customer-review-samples { grid-template-columns: 1fr; }
       .partner-ticker-track { animation-duration: 18s; }
     }
+    .brand-leaf {
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+}
+
+.falling-maple-leaf {
+  position: fixed;
+  width: 28px;
+  height: auto;
+  pointer-events: none;
+  z-index: 99999;
+  will-change: transform, opacity;
+}
   </style>
 </head>
 <body>
@@ -533,5 +547,90 @@
   </main>
 
   <script src="js.js"></script>
+
+<script>
+  const mapleLeaf = document.querySelector('.brand-leaf');
+
+  if (mapleLeaf) {
+    mapleLeaf.addEventListener('click', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const rect = mapleLeaf.getBoundingClientRect();
+
+      for (let i = 0; i < 18; i++) {
+        const leaf = document.createElement('img');
+
+        leaf.src = 'images/leaf.png';
+        leaf.className = 'falling-maple-leaf';
+
+        const startX =
+          rect.left +
+          rect.width / 2 +
+          (Math.random() * 80 - 40);
+
+        const startY =
+          rect.top +
+          rect.height / 2 +
+          (Math.random() * 20 - 10);
+
+        leaf.style.left = startX + 'px';
+        leaf.style.top = startY + 'px';
+
+        document.body.appendChild(leaf);
+
+        const drift = Math.random() * 240 - 120;
+        const fallDistance = window.innerHeight - startY + 100;
+        const rotation = Math.random() * 720 - 360;
+        const duration = 1800 + Math.random() * 1800;
+        const delay = Math.random() * 300;
+
+        leaf.animate(
+          [
+            {
+              transform: 'translate(0, 0) rotate(0deg)',
+              opacity: 1
+            },
+            {
+              transform:
+                `translate(${drift * 0.4}px, ${fallDistance * 0.45}px) rotate(${rotation * 0.45}deg)`,
+              opacity: 1,
+              offset: 0.55
+            },
+            {
+              transform:
+                `translate(${drift}px, ${fallDistance}px) rotate(${rotation}deg)`,
+              opacity: 0
+            }
+          ],
+          {
+            duration: duration,
+            delay: delay,
+            easing: 'ease-in',
+            fill: 'forwards'
+          }
+        );
+
+        setTimeout(() => {
+          leaf.remove();
+        }, duration + delay + 100);
+      }
+
+      mapleLeaf.animate(
+        [
+          { transform: 'rotate(0deg) scale(1)' },
+          { transform: 'rotate(-15deg) scale(1.15)' },
+          { transform: 'rotate(12deg) scale(1.15)' },
+          { transform: 'rotate(0deg) scale(1)' }
+        ],
+        {
+          duration: 350,
+          easing: 'ease-out'
+        }
+      );
+    });
+  }
+</script>
+
 </body>
 </html>
