@@ -218,8 +218,11 @@ button, input { font: inherit; }
 /* Fixed header stack is 104px + 58px. */
 main { padding-top: 162px; }
 
-
-
+.partner-ticker {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
 
 .stats-grid {
   width: 100%;
@@ -6981,5 +6984,54 @@ textarea {
 
   .sample-review-card {
     min-height: 0;
+  }
+}
+.partner-ticker {
+  overflow: hidden;
+  background: #173622;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.partner-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: partnerTickerScroll 18s linear infinite;
+}
+
+.partner-ticker-group {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-shrink: 0;
+  padding: 14px 20px;
+}
+
+.partner-ticker a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.partner-dot {
+  color: #d7b360;
+  font-size: 18px;
+}
+
+.partner-ticker:hover .partner-ticker-track {
+  animation-play-state: paused;
+}
+
+@keyframes partnerTickerScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
   }
 }
