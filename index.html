@@ -551,161 +551,255 @@
       leafIsFalling = true;
 
       const rect = mapleLeaf.getBoundingClientRect();
-      const fallDistance = window.innerHeight - rect.bottom + 60;
+
+      const fallDistance =
+        window.innerHeight - rect.bottom + rect.height + 70;
+
+      const fromTop =
+        -(rect.top + rect.height + 70);
 
       const animation = mapleLeaf.animate(
-      [
-        {
-          transform:
-            'translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)',
-          offset: 0
-        },
+        [
+          /* ORIGINAL POSITION */
+          {
+            transform:
+              'translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)',
+            opacity: 1,
+            offset: 0
+          },
 
-        {
-          transform:
-            `translate3d(28px, ${fallDistance * 0.07}px, 0)
-            rotateX(18deg)
-            rotateY(35deg)
-            rotateZ(12deg)`,
-          offset: 0.07
-        },
+          /* SWOOP RIGHT */
+          {
+            transform:
+              `translate3d(55px, ${fallDistance * 0.08}px, 0)
+               rotateX(25deg)
+               rotateY(45deg)
+               rotateZ(18deg)`,
+            opacity: 1,
+            offset: 0.05
+          },
 
-        {
-          transform:
-            `translate3d(68px, ${fallDistance * 0.14}px, 0)
-            rotateX(38deg)
-            rotateY(72deg)
-            rotateZ(25deg)`,
-          offset: 0.14
-        },
+          {
+            transform:
+              `translate3d(100px, ${fallDistance * 0.17}px, 0)
+               rotateX(55deg)
+               rotateY(100deg)
+               rotateZ(35deg)`,
+            opacity: 1,
+            offset: 0.10
+          },
 
-        {
-          transform:
-            `translate3d(98px, ${fallDistance * 0.21}px, 0)
-            rotateX(62deg)
-            rotateY(112deg)
-            rotateZ(36deg)`,
-          offset: 0.21
-        },
+          {
+            transform:
+              `translate3d(115px, ${fallDistance * 0.25}px, 0)
+               rotateX(85deg)
+               rotateY(150deg)
+               rotateZ(42deg)`,
+            opacity: 1,
+            offset: 0.15
+          },
 
-        {
-          transform:
-            `translate3d(108px, ${fallDistance * 0.28}px, 0)
-            rotateX(88deg)
-            rotateY(150deg)
-            rotateZ(40deg)`,
-          offset: 0.28
-        },
+          /* CURVE BACK LEFT */
+          {
+            transform:
+              `translate3d(80px, ${fallDistance * 0.34}px, 0)
+               rotateX(120deg)
+               rotateY(205deg)
+               rotateZ(28deg)`,
+            opacity: 1,
+            offset: 0.20
+          },
 
-        {
-          transform:
-            `translate3d(92px, ${fallDistance * 0.35}px, 0)
-            rotateX(118deg)
-            rotateY(188deg)
-            rotateZ(32deg)`,
-          offset: 0.35
-        },
+          {
+            transform:
+              `translate3d(10px, ${fallDistance * 0.43}px, 0)
+               rotateX(160deg)
+               rotateY(265deg)
+               rotateZ(0deg)`,
+            opacity: 1,
+            offset: 0.25
+          },
 
-        {
-          transform:
-            `translate3d(50px, ${fallDistance * 0.42}px, 0)
-            rotateX(150deg)
-            rotateY(228deg)
-            rotateZ(15deg)`,
-          offset: 0.42
-        },
+          {
+            transform:
+              `translate3d(-75px, ${fallDistance * 0.53}px, 0)
+               rotateX(200deg)
+               rotateY(325deg)
+               rotateZ(-30deg)`,
+            opacity: 1,
+            offset: 0.30
+          },
 
-        {
-          transform:
-            `translate3d(-10px, ${fallDistance * 0.49}px, 0)
-            rotateX(184deg)
-            rotateY(268deg)
-            rotateZ(-8deg)`,
-          offset: 0.49
-        },
+          {
+            transform:
+              `translate3d(-115px, ${fallDistance * 0.63}px, 0)
+               rotateX(245deg)
+               rotateY(390deg)
+               rotateZ(-44deg)`,
+            opacity: 1,
+            offset: 0.35
+          },
 
-        {
-          transform:
-            `translate3d(-65px, ${fallDistance * 0.56}px, 0)
-            rotateX(218deg)
-            rotateY(310deg)
-            rotateZ(-28deg)`,
-          offset: 0.56
-        },
+          /* SWOOP RIGHT AGAIN */
+          {
+            transform:
+              `translate3d(-85px, ${fallDistance * 0.72}px, 0)
+               rotateX(285deg)
+               rotateY(450deg)
+               rotateZ(-28deg)`,
+            opacity: 1,
+            offset: 0.40
+          },
 
-        {
-          transform:
-            `translate3d(-102px, ${fallDistance * 0.63}px, 0)
-            rotateX(252deg)
-            rotateY(352deg)
-            rotateZ(-40deg)`,
-          offset: 0.63
-        },
+          {
+            transform:
+              `translate3d(-10px, ${fallDistance * 0.82}px, 0)
+               rotateX(330deg)
+               rotateY(515deg)
+               rotateZ(2deg)`,
+            opacity: 1,
+            offset: 0.45
+          },
 
-        {
-          transform:
-            `translate3d(-112px, ${fallDistance * 0.70}px, 0)
-            rotateX(286deg)
-            rotateY(395deg)
-            rotateZ(-42deg)`,
-          offset: 0.70
-        },
+          {
+            transform:
+              `translate3d(80px, ${fallDistance * 0.92}px, 0)
+               rotateX(380deg)
+               rotateY(585deg)
+               rotateZ(32deg)`,
+            opacity: 1,
+            offset: 0.50
+          },
 
-        {
-          transform:
-            `translate3d(-90px, ${fallDistance * 0.77}px, 0)
-            rotateX(320deg)
-            rotateY(438deg)
-            rotateZ(-32deg)`,
-          offset: 0.77
-        },
+          /* COMPLETELY BELOW SCREEN */
+          {
+            transform:
+              `translate3d(105px, ${fallDistance}px, 0)
+               rotateX(430deg)
+               rotateY(650deg)
+               rotateZ(40deg)`,
+            opacity: 1,
+            offset: 0.54
+          },
 
-        {
-          transform:
-            `translate3d(-42px, ${fallDistance * 0.84}px, 0)
-            rotateX(355deg)
-            rotateY(482deg)
-            rotateZ(-12deg)`,
-          offset: 0.84
-        },
+          /* HIDE IT WHILE MOVING IT ABOVE SCREEN */
+          {
+            transform:
+              `translate3d(-70px, ${fromTop}px, 0)
+               rotateX(80deg)
+               rotateY(120deg)
+               rotateZ(-30deg)`,
+            opacity: 0,
+            offset: 0.541
+          },
 
-        {
-          transform:
-            `translate3d(22px, ${fallDistance * 0.90}px, 0)
-            rotateX(390deg)
-            rotateY(528deg)
-            rotateZ(12deg)`,
-          offset: 0.90
-        },
+          /* REAPPEAR ABOVE SCREEN */
+          {
+            transform:
+              `translate3d(-70px, ${fromTop}px, 0)
+               rotateX(80deg)
+               rotateY(120deg)
+               rotateZ(-30deg)`,
+            opacity: 1,
+            offset: 0.55
+          },
 
-        {
-          transform:
-            `translate3d(72px, ${fallDistance * 0.95}px, 0)
-            rotateX(425deg)
-            rotateY(575deg)
-            rotateZ(30deg)`,
-          offset: 0.95
-        },
+          /* FALL BACK DOWN FROM TOP */
+          {
+            transform:
+              `translate3d(-105px, ${fromTop * 0.78}px, 0)
+               rotateX(120deg)
+               rotateY(175deg)
+               rotateZ(-42deg)`,
+            opacity: 1,
+            offset: 0.61
+          },
 
+          {
+            transform:
+              `translate3d(-70px, ${fromTop * 0.58}px, 0)
+               rotateX(165deg)
+               rotateY(235deg)
+               rotateZ(-25deg)`,
+            opacity: 1,
+            offset: 0.67
+          },
+
+          {
+            transform:
+              `translate3d(5px, ${fromTop * 0.40}px, 0)
+               rotateX(210deg)
+               rotateY(300deg)
+               rotateZ(5deg)`,
+            opacity: 1,
+            offset: 0.73
+          },
+
+          {
+            transform:
+              `translate3d(95px, ${fromTop * 0.26}px, 0)
+               rotateX(255deg)
+               rotateY(365deg)
+               rotateZ(38deg)`,
+            opacity: 1,
+            offset: 0.79
+          },
+
+          {
+            transform:
+              `translate3d(110px, ${fromTop * 0.17}px, 0)
+               rotateX(295deg)
+               rotateY(425deg)
+               rotateZ(42deg)`,
+            opacity: 1,
+            offset: 0.84
+          },
+
+          {
+            transform:
+              `translate3d(70px, ${fromTop * 0.10}px, 0)
+               rotateX(330deg)
+               rotateY(480deg)
+               rotateZ(25deg)`,
+            opacity: 1,
+            offset: 0.89
+          },
+
+          {
+            transform:
+              `translate3d(20px, ${fromTop * 0.045}px, 0)
+               rotateX(350deg)
+               rotateY(520deg)
+               rotateZ(10deg)`,
+            opacity: 1,
+            offset: 0.94
+          },
+
+          /* SETTLE EXACTLY BACK HOME */
+          {
+            transform:
+              'translate3d(0px, 0px, 0px) rotateX(360deg) rotateY(540deg) rotateZ(0deg)',
+            opacity: 1,
+            offset: 1
+          }
+        ],
         {
-          transform:
-            `translate3d(92px, ${fallDistance}px, 0)
-            rotateX(460deg)
-            rotateY(625deg)
-            rotateZ(38deg)`,
-          offset: 1
+          duration: 17000,
+          easing: 'cubic-bezier(0.45, 0.05, 0.55, 0.95)',
+          fill: 'none'
         }
-      ],
-      {
-        duration: 9500,
-        easing: 'cubic-bezier(0.45, 0.05, 0.55, 0.95)',
-        fill: 'none'
-      }
-    );
+      );
+
+      animation.onfinish = function () {
+        leafIsFalling = false;
+      };
+
+      animation.oncancel = function () {
+        leafIsFalling = false;
+      };
     });
   }
 </script>
-
 <script src="js.js"></script>
 
 </body>
