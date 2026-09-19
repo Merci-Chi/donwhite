@@ -45,6 +45,20 @@
     }
   </script>
 
+
+  <style>
+    .partner-ticker { overflow: hidden; background: #173f2f; color: #fff; white-space: nowrap; border-top: 1px solid rgba(255,255,255,.12); border-bottom: 1px solid rgba(255,255,255,.12); }
+    .partner-ticker-track { display: inline-flex; align-items: center; gap: 28px; min-width: max-content; padding: 12px 0; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; animation: partnerTicker 24s linear infinite; }
+    @keyframes partnerTicker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .customer-review-samples { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+    .customer-review-samples .review-card { height: 100%; }
+    .steadyhands-credit { margin: 8px 0 0; font-size: .85rem; opacity: .86; }
+    .steadyhands-credit a { color: inherit; font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 800px) {
+      .customer-review-samples { grid-template-columns: 1fr; }
+      .partner-ticker-track { animation-duration: 18s; }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -89,15 +103,22 @@
     </div>
   </div>
 
+  <section class="partner-ticker" aria-label="Trusted local partners">
+    <div class="partner-ticker-track">
+      <span>Star Nursery</span><span>•</span><span>Moon Valley Nursery</span><span>•</span><span>A&amp;L Handyman</span><span>•</span>
+      <span>Star Nursery</span><span>•</span><span>Moon Valley Nursery</span><span>•</span><span>A&amp;L Handyman</span><span>•</span>
+    </div>
+  </section>
+
   <main id="home">
 <section class="compact-hero" id="home">
       <div class="compact-hero-image" aria-hidden="true"></div>
       <div class="compact-hero-overlay"></div>
       <div class="compact-hero-content">
         <div class="compact-hero-copy">
-          <span class="compact-hero-kicker">LAS VEGAS LANDSCAPING</span>
+          <span class="compact-hero-kicker">LAS VEGAS VALLEY LANDSCAPING</span>
           <h1>Las Vegas Landscaping Done Right.</h1>
-          <p>Maintenance, Clean-ups, Irrigation repairs, Artificial turf, Pavers, Trees, Enhancements, and More.</p>
+          <p>Maintenance, Clean ups, Irrigation repairs, artificial turf, pavers, trees, enhancements, and more.</p>
           <div class="compact-hero-actions">
             <a class="hero-cta hero-cta-primary" href="#contact">GET A FREE ESTIMATE</a>
             <a class="hero-cta hero-cta-secondary" href="tel:+17028752616">(702) 241-9668</a>
@@ -317,7 +338,8 @@
 <section class="testimonials-section" id="testimonials">
       <div class="site-width">
         <div class="testimonial-heading redesigned-heading">
-          <h2>What Our Clients Say</h2>
+          <span class="eyebrow centered-eyebrow">CUSTOMER REVIEWS + COMMENTS</span>
+          <h2>What Our Customers Say</h2>
           <div class="heading-divider" aria-hidden="true">
             <span></span>
             <img src="images/leaf.png" alt="" />
@@ -325,155 +347,30 @@
           </div>
         </div>
 
-        <div class="review-carousel-shell">
-          <button class="review-arrow review-arrow-left" type="button" aria-label="Previous reviews">
-            <i class="bi bi-chevron-left" aria-hidden="true"></i>
-          </button>
-
-          <div class="review-carousel-viewport">
-            <div class="review-cards-grid" id="reviewCarousel">
-              <article class="review-card">
-                <div class="review-card-top">
-                  <div class="review-platform google-wordmark" aria-label="Google review">
-                    <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
-                  </div>
-                  <div class="review-score-inline">
-                    <div class="review-stars" aria-label="5 out of 5 stars"><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i></div>
-                    <strong>5.0</strong>
-                  </div>
-                </div>
-                <p class="review-copy">Don and his team are amazing! Our yard has never looked better. Reliable, on time, and very professional. They truly care about their work and it shows.</p>
-                <div class="review-card-bottom">
-                  <div class="review-author">
-                    <div class="review-avatar">S</div>
-                    <div class="review-author-meta">
-                      <strong>Sarah M.</strong>
-                      <span>May 12, 2024</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <article class="review-card">
-                <div class="review-card-top">
-                  <div class="review-platform yelp-wordmark" aria-label="Yelp review">
-                    <span class="yelp-text">yelp</span><i class="bi bi-yelp yelp-burst" aria-hidden="true"></i>
-                  </div>
-                  <div class="review-score-inline">
-                    <div class="review-stars" aria-label="5 out of 5 stars"><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i></div>
-                    <strong>5.0</strong>
-                  </div>
-                </div>
-                <p class="review-copy">We had a full backyard renovation and couldn’t be happier. The design and quality of work exceeded our expectations. Highly recommend Desert Forest Landscape!</p>
-                <div class="review-card-bottom">
-                  <div class="review-author">
-                    <div class="review-avatar">M</div>
-                    <div class="review-author-meta">
-                      <strong>Mike R.</strong>
-                      <span>April 28, 2024</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <article class="review-card">
-                <div class="review-card-top">
-                  <div class="review-platform google-wordmark" aria-label="Google review">
-                    <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
-                  </div>
-                  <div class="review-score-inline">
-                    <div class="review-stars" aria-label="5 out of 5 stars"><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i></div>
-                    <strong>5.0</strong>
-                  </div>
-                </div>
-                <p class="review-copy">Great communication and fair pricing. They take care of our maintenance and everything looks perfect. Our front yard has never received so many compliments!</p>
-                <div class="review-card-bottom">
-                  <div class="review-author">
-                    <div class="review-avatar">L</div>
-                    <div class="review-author-meta">
-                      <strong>Lisa T.</strong>
-                      <span>June 5, 2024</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <article class="review-card">
-                <div class="review-card-top">
-                  <div class="review-platform yelp-wordmark" aria-label="Yelp review">
-                    <span class="yelp-text">yelp</span><i class="bi bi-yelp yelp-burst" aria-hidden="true"></i>
-                  </div>
-                  <div class="review-score-inline">
-                    <div class="review-stars" aria-label="5 out of 5 stars"><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i></div>
-                    <strong>5.0</strong>
-                  </div>
-                </div>
-                <p class="review-copy">Our yard needed a complete cleanup and refresh. The crew was professional, worked quickly, and left everything looking clean and finished.</p>
-                <div class="review-card-bottom">
-                  <div class="review-author">
-                    <div class="review-avatar">D</div>
-                    <div class="review-author-meta">
-                      <strong>Daniel R.</strong>
-                      <span>June 18, 2024</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <article class="review-card">
-                <div class="review-card-top">
-                  <div class="review-platform google-wordmark" aria-label="Google review">
-                    <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
-                  </div>
-                  <div class="review-score-inline">
-                    <div class="review-stars" aria-label="5 out of 5 stars"><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i></div>
-                    <strong>5.0</strong>
-                  </div>
-                </div>
-                <p class="review-copy">They helped us with irrigation and new plants and made the whole process easy to understand. Everything has been working great.</p>
-                <div class="review-card-bottom">
-                  <div class="review-author">
-                    <div class="review-avatar">J</div>
-                    <div class="review-author-meta">
-                      <strong>Jennifer C.</strong>
-                      <span>July 2, 2024</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <article class="review-card">
-                <div class="review-card-top">
-                  <div class="review-platform google-wordmark" aria-label="Google review">
-                    <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
-                  </div>
-                  <div class="review-score-inline">
-                    <div class="review-stars" aria-label="5 out of 5 stars"><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i></div>
-                    <strong>5.0</strong>
-                  </div>
-                </div>
-                <p class="review-copy">The new pavers and lighting completely changed our backyard. The finished work looks great during the day and even better at night.</p>
-                <div class="review-card-bottom">
-                  <div class="review-author">
-                    <div class="review-avatar">A</div>
-                    <div class="review-author-meta">
-                      <strong>Alex P.</strong>
-                      <span>July 19, 2024</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
+        <div class="review-cards-grid customer-review-samples">
+          <article class="review-card">
+            <div class="review-score-inline">
+              <div class="review-stars" aria-label="5 out of 5 stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
             </div>
-          </div>
+            <p class="review-copy">“Great communication, reliable service, and our yard looked completely refreshed when the job was finished.”</p>
+            <div class="review-author-meta"><strong>Customer Review Sample</strong><span>Las Vegas, NV</span></div>
+          </article>
 
-          <button class="review-arrow review-arrow-right" type="button" aria-label="Next reviews">
-            <i class="bi bi-chevron-right" aria-hidden="true"></i>
-          </button>
-        </div>
+          <article class="review-card">
+            <div class="review-score-inline">
+              <div class="review-stars" aria-label="5 out of 5 stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            </div>
+            <p class="review-copy">“They repaired our irrigation, cleaned everything up, and made the whole process easy from start to finish.”</p>
+            <div class="review-author-meta"><strong>Customer Review Sample</strong><span>Las Vegas Valley</span></div>
+          </article>
 
-        <div class="review-carousel-footer">
-          <div class="review-dots" id="reviewDots" aria-label="Review pages"></div>
-          <span class="review-more-label">More customer reviews</span>
+          <article class="review-card">
+            <div class="review-score-inline">
+              <div class="review-stars" aria-label="5 out of 5 stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            </div>
+            <p class="review-copy">“Professional crew, fair pricing, and the pavers and turf made a huge difference in our backyard.”</p>
+            <div class="review-author-meta"><strong>Customer Review Sample</strong><span>Surrounding Las Vegas Area</span></div>
+          </article>
         </div>
 
         <section class="contact-bottom-section" id="contact">
@@ -520,7 +417,7 @@
               <div class="mobile-footer-title">DESERT FOREST<br>LANDSCAPE</div>
               <div class="mobile-footer-tagline">TURNING OVER A NEW LEAF</div>
             </div>
-            <p class="mobile-footer-about">Proudly serving the Las Vegas Valley with quality landscaping, tree care, and outdoor solutions built to last.</p>
+            <p class="mobile-footer-about">Servicing Las Vegas and Surrounding areas with quality landscaping, tree care, and outdoor solutions built to last.</p>
             <div class="mobile-footer-socials" aria-label="Social media">
               <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
               <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
@@ -530,7 +427,7 @@
 
           <div class="mobile-footer-section mobile-footer-areas">
             <h3><img src="icons/location.png" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;"><span>SERVICE AREAS</span></h3>
-            <p>Las Vegas, Henderson, North Las Vegas, Summerlin, Spring Valley, Green Valley, Boulder City &amp; surrounding areas.</p>
+            <p>Las Vegas and Surrounding areas</p>
           </div>
 
           <div class="mobile-footer-section mobile-footer-services-section">
@@ -565,6 +462,7 @@
 
           <div class="mobile-footer-bottom">
             <p>© 2026 Desert Forest Landscape. All Rights Reserved.</p>
+             <p class="steadyhands-credit">Website built &amp; hosted by <a href="https://steadyhandsop.com" target="_blank" rel="noopener">Steady Hands</a></p>
             <div><a href="#">Privacy Policy</a><span>•</span><a href="#">Terms of Service</a></div>
           </div>
         </footer>
@@ -579,7 +477,7 @@
                   <span class="footer-tagline">TURNING OVER A NEW LEAF</span>
                 </div>
               </div>
-              <p class="footer-about">Proudly serving the Las Vegas Valley with quality landscaping, tree care, and outdoor solutions built to last.</p>
+              <p class="footer-about">Servicing Las Vegas and Surrounding areas with quality landscaping, tree care, and outdoor solutions built to last.</p>
               <div class="footer-socials footer-brand-socials" aria-label="Social media">
                 <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
                 <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
@@ -587,7 +485,7 @@
               </div>
               <div class="footer-service-areas">
                 <h3>SERVICE AREAS</h3>
-                <p class="footer-service-area-copy">Las Vegas, Henderson, North Las Vegas, Summerlin, Spring Valley, Green Valley, Boulder City &amp; surrounding areas.</p>
+                <p class="footer-service-area-copy">Las Vegas and Surrounding areas</p>
               </div>
             </div>
 
@@ -626,6 +524,7 @@
 
           <div class="footer-bottom">
             <p>© 2026 Desert Forest Landscape. All Rights Reserved.</p>
+             <p class="steadyhands-credit">Website built &amp; hosted by <a href="https://steadyhandsop.com" target="_blank" rel="noopener">Steady Hands</a></p>
             <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
           </div>
         </footer>
