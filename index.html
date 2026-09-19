@@ -64,19 +64,6 @@
   z-index: 10;
 }
 
-.falling-maple-leaf {
-  position: fixed;
-  width: 28px;
-  height: auto;
-  pointer-events: none;
-  z-index: 99999;
-
-  transform-style: preserve-3d;
-  backface-visibility: visible;
-  perspective: 800px;
-
-  will-change: transform, opacity;
-}
   </style>
 </head>
 <body>
@@ -550,96 +537,112 @@
       </div>
     </section>
   </main>
-
-  <script src="js.js"></script>
-
 <script>
   const mapleLeaf = document.querySelector('.brand-leaf');
 
   if (mapleLeaf) {
+    let leafIsFalling = false;
+
     mapleLeaf.addEventListener('click', function (event) {
       event.preventDefault();
       event.stopPropagation();
 
-      if (document.querySelector('.falling-maple-leaf')) return;
+      if (leafIsFalling) return;
+      leafIsFalling = true;
 
       const rect = mapleLeaf.getBoundingClientRect();
 
-      const leaf = document.createElement('img');
-      leaf.src = 'images/leaf.png';
-      leaf.className = 'falling-maple-leaf';
+      // Distance from the leaf's REAL position to the bottom of the screen
+      const fallDistance = window.innerHeight - rect.bottom + 60;
 
-      leaf.style.left = (rect.left + rect.width / 2 - 14) + 'px';
-      leaf.style.top = (rect.top + rect.height / 2 - 14) + 'px';
-
-      document.body.appendChild(leaf);
-
-      const fallDistance = window.innerHeight - rect.top + 80;
-
-      const animation = leaf.animate(
+      const animation = mapleLeaf.animate(
         [
           {
             transform:
-              'translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)',
-            opacity: 1
+              'translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg)',
+            offset: 0
           },
+
           {
             transform:
-              `translate3d(25px, ${fallDistance * 0.2}px, 0px)
-               rotateX(40deg)
-               rotateY(100deg)
-               rotateZ(45deg)`,
-            opacity: 1,
-            offset: 0.2
+              `translate3d(18px, ${fallDistance * 0.12}px, 0)
+               rotateX(25deg)
+               rotateY(65deg)
+               rotateZ(20deg)`,
+            offset: 0.12
           },
+
           {
             transform:
-              `translate3d(-30px, ${fallDistance * 0.4}px, 0px)
-               rotateX(90deg)
-               rotateY(210deg)
-               rotateZ(110deg)`,
-            opacity: 1,
-            offset: 0.4
+              `translate3d(40px, ${fallDistance * 0.27}px, 0)
+               rotateX(70deg)
+               rotateY(140deg)
+               rotateZ(55deg)`,
+            offset: 0.27
           },
+
           {
             transform:
-              `translate3d(35px, ${fallDistance * 0.6}px, 0px)
-               rotateX(150deg)
-               rotateY(320deg)
-               rotateZ(180deg)`,
-            opacity: 1,
-            offset: 0.6
+              `translate3d(5px, ${fallDistance * 0.43}px, 0)
+               rotateX(120deg)
+               rotateY(215deg)
+               rotateZ(95deg)`,
+            offset: 0.43
           },
+
           {
             transform:
-              `translate3d(-25px, ${fallDistance * 0.8}px, 0px)
-               rotateX(220deg)
-               rotateY(450deg)
-               rotateZ(270deg)`,
-            opacity: 0.95,
-            offset: 0.8
+              `translate3d(-38px, ${fallDistance * 0.58}px, 0)
+               rotateX(175deg)
+               rotateY(300deg)
+               rotateZ(140deg)`,
+            offset: 0.58
           },
+
           {
             transform:
-              `translate3d(15px, ${fallDistance}px, 0px)
-               rotateX(300deg)
-               rotateY(600deg)
-               rotateZ(360deg)`,
-            opacity: 0
+              `translate3d(-12px, ${fallDistance * 0.72}px, 0)
+               rotateX(225deg)
+               rotateY(385deg)
+               rotateZ(190deg)`,
+            offset: 0.72
+          },
+
+          {
+            transform:
+              `translate3d(35px, ${fallDistance * 0.86}px, 0)
+               rotateX(275deg)
+               rotateY(470deg)
+               rotateZ(245deg)`,
+            offset: 0.86
+          },
+
+          {
+            transform:
+              `translate3d(10px, ${fallDistance}px, 0)
+               rotateX(330deg)
+               rotateY(560deg)
+               rotateZ(300deg)`,
+            offset: 1
           }
         ],
         {
-          duration: 7000,
-          easing: 'ease-in-out',
-          fill: 'forwards'
+          duration: 7500,
+          easing: 'linear'
         }
       );
 
-      animation.onfinish = () => {
-        leaf.remove();
+      animation.onfinish = function () {
+        leafIsFalling = false;
+      };
+
+      animation.oncancel = function () {
+        leafIsFalling = false;
       };
     });
   }
+</script>
+  <script src="js.js"></script>
 </script>
 
 </body>
