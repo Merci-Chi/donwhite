@@ -6875,7 +6875,8 @@ textarea {
   min-width: max-content;
 }
 
-.partner-ticker-group span {
+.partner-ticker-group span,
+.partner-ticker-group a {
   font-size: 13px;
   font-weight: 900;
   letter-spacing: 0.09em;
@@ -6886,6 +6887,19 @@ textarea {
 .partner-ticker .partner-dot {
   color: var(--gold);
   opacity: 0.95;
+}
+
+.partner-ticker-group a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .2s ease, text-decoration-color .2s ease;
+}
+
+.partner-ticker-group a:hover,
+.partner-ticker-group a:focus-visible {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .partner-ticker:hover .partner-ticker-track {
@@ -6955,7 +6969,8 @@ textarea {
     padding: 11px 12px;
   }
 
-  .partner-ticker-group span {
+  .partner-ticker-group span,
+  .partner-ticker-group a {
     font-size: 11px;
   }
 
