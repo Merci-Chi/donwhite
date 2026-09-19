@@ -563,108 +563,145 @@
 
         {
           transform:
-            `translate3d(55px, ${fallDistance * 0.10}px, 0)
-            rotateX(35deg)
-            rotateY(75deg)
-            rotateZ(20deg)`,
-          offset: 0.10
+            `translate3d(28px, ${fallDistance * 0.07}px, 0)
+            rotateX(18deg)
+            rotateY(35deg)
+            rotateZ(12deg)`,
+          offset: 0.07
         },
 
         {
           transform:
-            `translate3d(95px, ${fallDistance * 0.20}px, 0)
-            rotateX(70deg)
-            rotateY(145deg)
-            rotateZ(40deg)`,
-          offset: 0.20
-        },
-
-        {
-          transform:
-            `translate3d(55px, ${fallDistance * 0.30}px, 0)
-            rotateX(105deg)
-            rotateY(220deg)
-            rotateZ(15deg)`,
-          offset: 0.30
-        },
-
-        {
-          transform:
-            `translate3d(-55px, ${fallDistance * 0.40}px, 0)
-            rotateX(145deg)
-            rotateY(300deg)
-            rotateZ(-25deg)`,
-          offset: 0.40
-        },
-
-        {
-          transform:
-            `translate3d(-95px, ${fallDistance * 0.50}px, 0)
-            rotateX(185deg)
-            rotateY(385deg)
-            rotateZ(-45deg)`,
-          offset: 0.50
-        },
-
-        {
-          transform:
-            `translate3d(-55px, ${fallDistance * 0.60}px, 0)
-            rotateX(225deg)
-            rotateY(465deg)
-            rotateZ(-20deg)`,
-          offset: 0.60
-        },
-
-        {
-          transform:
-            `translate3d(55px, ${fallDistance * 0.70}px, 0)
-            rotateX(265deg)
-            rotateY(545deg)
+            `translate3d(68px, ${fallDistance * 0.14}px, 0)
+            rotateX(38deg)
+            rotateY(72deg)
             rotateZ(25deg)`,
+          offset: 0.14
+        },
+
+        {
+          transform:
+            `translate3d(98px, ${fallDistance * 0.21}px, 0)
+            rotateX(62deg)
+            rotateY(112deg)
+            rotateZ(36deg)`,
+          offset: 0.21
+        },
+
+        {
+          transform:
+            `translate3d(108px, ${fallDistance * 0.28}px, 0)
+            rotateX(88deg)
+            rotateY(150deg)
+            rotateZ(40deg)`,
+          offset: 0.28
+        },
+
+        {
+          transform:
+            `translate3d(92px, ${fallDistance * 0.35}px, 0)
+            rotateX(118deg)
+            rotateY(188deg)
+            rotateZ(32deg)`,
+          offset: 0.35
+        },
+
+        {
+          transform:
+            `translate3d(50px, ${fallDistance * 0.42}px, 0)
+            rotateX(150deg)
+            rotateY(228deg)
+            rotateZ(15deg)`,
+          offset: 0.42
+        },
+
+        {
+          transform:
+            `translate3d(-10px, ${fallDistance * 0.49}px, 0)
+            rotateX(184deg)
+            rotateY(268deg)
+            rotateZ(-8deg)`,
+          offset: 0.49
+        },
+
+        {
+          transform:
+            `translate3d(-65px, ${fallDistance * 0.56}px, 0)
+            rotateX(218deg)
+            rotateY(310deg)
+            rotateZ(-28deg)`,
+          offset: 0.56
+        },
+
+        {
+          transform:
+            `translate3d(-102px, ${fallDistance * 0.63}px, 0)
+            rotateX(252deg)
+            rotateY(352deg)
+            rotateZ(-40deg)`,
+          offset: 0.63
+        },
+
+        {
+          transform:
+            `translate3d(-112px, ${fallDistance * 0.70}px, 0)
+            rotateX(286deg)
+            rotateY(395deg)
+            rotateZ(-42deg)`,
           offset: 0.70
         },
 
         {
           transform:
-            `translate3d(95px, ${fallDistance * 0.80}px, 0)
-            rotateX(305deg)
-            rotateY(625deg)
-            rotateZ(45deg)`,
-          offset: 0.80
+            `translate3d(-90px, ${fallDistance * 0.77}px, 0)
+            rotateX(320deg)
+            rotateY(438deg)
+            rotateZ(-32deg)`,
+          offset: 0.77
         },
 
         {
           transform:
-            `translate3d(55px, ${fallDistance * 0.90}px, 0)
-            rotateX(345deg)
-            rotateY(705deg)
-            rotateZ(20deg)`,
+            `translate3d(-42px, ${fallDistance * 0.84}px, 0)
+            rotateX(355deg)
+            rotateY(482deg)
+            rotateZ(-12deg)`,
+          offset: 0.84
+        },
+
+        {
+          transform:
+            `translate3d(22px, ${fallDistance * 0.90}px, 0)
+            rotateX(390deg)
+            rotateY(528deg)
+            rotateZ(12deg)`,
           offset: 0.90
         },
 
         {
           transform:
-            `translate3d(0px, ${fallDistance}px, 0)
-            rotateX(390deg)
-            rotateY(800deg)
-            rotateZ(0deg)`,
+            `translate3d(72px, ${fallDistance * 0.95}px, 0)
+            rotateX(425deg)
+            rotateY(575deg)
+            rotateZ(30deg)`,
+          offset: 0.95
+        },
+
+        {
+          transform:
+            `translate3d(92px, ${fallDistance}px, 0)
+            rotateX(460deg)
+            rotateY(625deg)
+            rotateZ(38deg)`,
           offset: 1
         }
       ],
       {
-        duration: 9000,
-        easing: 'cubic-bezier(0.37, 0, 0.63, 1)',
+        duration: 9500,
+        easing: 'cubic-bezier(0.45, 0.05, 0.55, 0.95)',
         fill: 'none'
       }
-      );
-
-      animation.onfinish = function () {
-        leafIsFalling = false;
-      };
-
-      animation.oncancel = function () {
-        leafIsFalling = false;
-      };
+    );
     });
   }
 </script>
