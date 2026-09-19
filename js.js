@@ -13,20 +13,20 @@ navLinks.forEach(link => {
   link.addEventListener('click', () => {
     clearActiveNav();
     link.classList.add('active');
-    mainNav.classList.remove('open');
-    mobileMenuButton.setAttribute('aria-expanded', 'false');
+    mainNav?.classList.remove('open');
+    mobileMenuButton?.setAttribute('aria-expanded', 'false');
   });
 });
 
-mobileMenuButton.addEventListener('click', () => {
-  const open = !mainNav.classList.contains('open');
-  mainNav.classList.toggle('open', open);
+mobileMenuButton?.addEventListener('click', () => {
+  const open = !mainNav?.classList.contains('open');
+  mainNav?.classList.toggle('open', open);
   mobileMenuButton.setAttribute('aria-expanded', String(open));
 });
 
 searchForm?.addEventListener('submit', event => {
   event.preventDefault();
-  const term = searchInput.value.trim().toLowerCase();
+  const term = searchInput?.value.trim().toLowerCase() || '';
   searchableCards.forEach(card => card.classList.remove('search-match'));
   if (!term) return;
 
@@ -51,93 +51,6 @@ const observer = new IntersectionObserver(entries => {
 }, { rootMargin: '-35% 0px -55% 0px' });
 
 sections.forEach(section => observer.observe(section));
-
-
-// Review carousel
-(() => {
-  const track = document.getElementById('reviewCarousel');
-  const dotsWrap = document.getElementById('reviewDots');
-  const prev = document.querySelector('.review-arrow-left');
-  const next = document.querySelector('.review-arrow-right');
-
-  if (!track || !dotsWrap || !prev || !next) return;
-
-  const cards = [...track.querySelectorAll('.review-card')];
-  let page = 0;
-
-  function cardsPerPage() {
-    if (window.innerWidth <= 680) return 1;
-    if (window.innerWidth <= 980) return 2;
-    return 3;
-  }
-
-  function totalPages() {
-    return Math.max(1, Math.ceil(cards.length / cardsPerPage()));
-  }
-
-  function buildDots() {
-    dotsWrap.innerHTML = '';
-    for (let i = 0; i < totalPages(); i++) {
-      const dot = document.createElement('button');
-      dot.type = 'button';
-      dot.className = 'review-dot';
-      dot.setAttribute('aria-label', `Show review page ${i + 1}`);
-      dot.addEventListener('click', () => {
-        page = i;
-        updateCarousel();
-      });
-      dotsWrap.appendChild(dot);
-    }
-  }
-
-  function updateCarousel() {
-    const perPage = cardsPerPage();
-    const pages = totalPages();
-    page = Math.min(page, pages - 1);
-
-    const viewport = track.parentElement;
-    const gap = 18;
-    const cardWidth = perPage === 1
-      ? viewport.clientWidth
-      : (viewport.clientWidth - gap * (perPage - 1)) / perPage;
-
-    track.style.transform = `translateX(-${page * perPage * (cardWidth + gap)}px)`;
-
-    [...dotsWrap.children].forEach((dot, index) => {
-      dot.classList.toggle('active', index === page);
-    });
-
-    prev.disabled = page === 0;
-    next.disabled = page === pages - 1;
-  }
-
-  prev.addEventListener('click', () => {
-    if (page > 0) {
-      page--;
-      updateCarousel();
-    }
-  });
-
-  next.addEventListener('click', () => {
-    if (page < totalPages() - 1) {
-      page++;
-      updateCarousel();
-    }
-  });
-
-  let resizeTimer;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      page = 0;
-      buildDots();
-      updateCarousel();
-    }, 120);
-  });
-
-  buildDots();
-  updateCarousel();
-})();
 
 
 // Contact attachment previews
@@ -239,8 +152,6 @@ const HEADER_TAB_POSITIONS = {
     });
   });
 })();
-
-
 
 
 // Mobile menu polish

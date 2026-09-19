@@ -45,20 +45,6 @@
     }
   </script>
 
-
-  <style>
-    .partner-ticker { overflow: hidden; background: #173f2f; color: #fff; white-space: nowrap; border-top: 1px solid rgba(255,255,255,.12); border-bottom: 1px solid rgba(255,255,255,.12); }
-    .partner-ticker-track { display: inline-flex; align-items: center; gap: 28px; min-width: max-content; padding: 12px 0; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; animation: partnerTicker 24s linear infinite; }
-    @keyframes partnerTicker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .customer-review-samples { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
-    .customer-review-samples .review-card { height: 100%; }
-    .steadyhands-credit { margin: 8px 0 0; font-size: .85rem; opacity: .86; }
-    .steadyhands-credit a { color: inherit; font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
-    @media (max-width: 800px) {
-      .customer-review-samples { grid-template-columns: 1fr; }
-      .partner-ticker-track { animation-duration: 18s; }
-    }
-  </style>
 </head>
 <body>
   <header class="site-header">
@@ -103,10 +89,19 @@
     </div>
   </div>
 
-  <section class="partner-ticker" aria-label="Trusted local partners">
+
+  <section class="partner-ticker" aria-label="Local businesses and suppliers">
     <div class="partner-ticker-track">
-      <span>Star Nursery</span><span>•</span><span>Moon Valley Nursery</span><span>•</span><span>A&amp;L Handyman</span><span>•</span>
-      <span>Star Nursery</span><span>•</span><span>Moon Valley Nursery</span><span>•</span><span>A&amp;L Handyman</span><span>•</span>
+      <div class="partner-ticker-group">
+        <span>Star Nursery</span><span class="partner-dot">•</span>
+        <span>Moon Valley Nursery</span><span class="partner-dot">•</span>
+        <span>A&amp;L Handyman</span><span class="partner-dot">•</span>
+      </div>
+      <div class="partner-ticker-group" aria-hidden="true">
+        <span>Star Nursery</span><span class="partner-dot">•</span>
+        <span>Moon Valley Nursery</span><span class="partner-dot">•</span>
+        <span>A&amp;L Handyman</span><span class="partner-dot">•</span>
+      </div>
     </div>
   </section>
 
@@ -117,7 +112,7 @@
       <div class="compact-hero-content">
         <div class="compact-hero-copy">
           <span class="compact-hero-kicker">LAS VEGAS VALLEY LANDSCAPING</span>
-          <h1>Las Vegas Landscaping Done Right.</h1>
+          <h1>Las Vegas Valley Landscaping</h1>
           <p>Maintenance, Clean ups, Irrigation repairs, artificial turf, pavers, trees, enhancements, and more.</p>
           <div class="compact-hero-actions">
             <a class="hero-cta hero-cta-primary" href="#contact">GET A FREE ESTIMATE</a>
@@ -338,7 +333,7 @@
 <section class="testimonials-section" id="testimonials">
       <div class="site-width">
         <div class="testimonial-heading redesigned-heading">
-          <span class="eyebrow centered-eyebrow">CUSTOMER REVIEWS + COMMENTS</span>
+          <span class="section-kicker light-kicker">CUSTOMER REVIEWS + COMMENTS</span>
           <h2>What Our Customers Say</h2>
           <div class="heading-divider" aria-hidden="true">
             <span></span>
@@ -347,29 +342,29 @@
           </div>
         </div>
 
-        <div class="review-cards-grid customer-review-samples">
-          <article class="review-card">
-            <div class="review-score-inline">
-              <div class="review-stars" aria-label="5 out of 5 stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+        <div class="customer-review-grid" aria-label="Sample customer reviews">
+          <article class="review-card sample-review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">
+              <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
             </div>
-            <p class="review-copy">“Great communication, reliable service, and our yard looked completely refreshed when the job was finished.”</p>
-            <div class="review-author-meta"><strong>Customer Review Sample</strong><span>Las Vegas, NV</span></div>
+            <p class="review-copy">“Add a customer comment here about maintenance, clean ups, or another completed service.”</p>
+            <div class="sample-review-label">Sample Review 1</div>
           </article>
 
-          <article class="review-card">
-            <div class="review-score-inline">
-              <div class="review-stars" aria-label="5 out of 5 stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <article class="review-card sample-review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">
+              <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
             </div>
-            <p class="review-copy">“They repaired our irrigation, cleaned everything up, and made the whole process easy from start to finish.”</p>
-            <div class="review-author-meta"><strong>Customer Review Sample</strong><span>Las Vegas Valley</span></div>
+            <p class="review-copy">“Add a customer comment here about irrigation repairs, artificial turf, pavers, or trees.”</p>
+            <div class="sample-review-label">Sample Review 2</div>
           </article>
 
-          <article class="review-card">
-            <div class="review-score-inline">
-              <div class="review-stars" aria-label="5 out of 5 stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <article class="review-card sample-review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">
+              <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
             </div>
-            <p class="review-copy">“Professional crew, fair pricing, and the pavers and turf made a huge difference in our backyard.”</p>
-            <div class="review-author-meta"><strong>Customer Review Sample</strong><span>Surrounding Las Vegas Area</span></div>
+            <p class="review-copy">“Add a customer comment here about the crew, communication, pricing, or finished landscaping.”</p>
+            <div class="sample-review-label">Sample Review 3</div>
           </article>
         </div>
 
@@ -448,7 +443,7 @@
             <div class="mobile-footer-contact-block">
               <h3>CONTACT</h3>
               <a href="tel:+17028752616"><img src="icons/phone.png" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;"><span>(702) 875-2616</span></a>
-              <p><img src="icons/location.png" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;"><span>Las Vegas Valley, Nevada</span></p>
+              <p><img src="icons/location.png" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;"><span>Las Vegas and Surrounding areas</span></p>
             </div>
             <div class="mobile-footer-hours-block">
               <h3>BUSINESS HOURS</h3>
@@ -462,7 +457,7 @@
 
           <div class="mobile-footer-bottom">
             <p>© 2026 Desert Forest Landscape. All Rights Reserved.</p>
-             <p class="steadyhands-credit">Website built &amp; hosted by <a href="https://steadyhandsop.com" target="_blank" rel="noopener">Steady Hands</a></p>
+            <p class="steadyhands-credit">Website by <a href="https://steadyhandsop.com" target="_blank" rel="noopener noreferrer">Steady Hands</a></p>
             <div><a href="#">Privacy Policy</a><span>•</span><a href="#">Terms of Service</a></div>
           </div>
         </footer>
@@ -508,7 +503,7 @@
                 <div class="footer-column footer-contact-area">
                   <h3>CONTACT</h3>
                   <a class="footer-contact-link" href="tel:+17028752616"><img src="icons/phone.png" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;"><span>(702) 875-2616</span></a>
-                  <div class="footer-location"><img src="icons/location.png" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;"><span>Las Vegas Valley, Nevada</span></div>
+                  <div class="footer-location"><img src="icons/location.png" alt="" aria-hidden="true" style="width:18px;height:18px;object-fit:contain;"><span>Las Vegas and Surrounding areas</span></div>
                 </div>
 
                 <div class="footer-column footer-hours">
@@ -524,7 +519,7 @@
 
           <div class="footer-bottom">
             <p>© 2026 Desert Forest Landscape. All Rights Reserved.</p>
-             <p class="steadyhands-credit">Website built &amp; hosted by <a href="https://steadyhandsop.com" target="_blank" rel="noopener">Steady Hands</a></p>
+            <p class="steadyhands-credit">Website by <a href="https://steadyhandsop.com" target="_blank" rel="noopener noreferrer">Steady Hands</a></p>
             <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
           </div>
         </footer>

@@ -6845,3 +6845,126 @@ textarea {
     font-size: 12.5px !important;
   }
 }
+
+
+/* ============================================================
+   LOCAL PARTNER SCROLLING BAR
+   ============================================================ */
+.partner-ticker {
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+  background: linear-gradient(90deg, #173622, #26472d, #173622);
+  color: #f6e5aa;
+  border-top: 1px solid rgba(215, 179, 96, 0.35);
+  border-bottom: 1px solid rgba(215, 179, 96, 0.35);
+}
+
+.partner-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: partnerTickerScroll 22s linear infinite;
+}
+
+.partner-ticker-group {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  flex-shrink: 0;
+  padding: 13px 17px;
+  min-width: max-content;
+}
+
+.partner-ticker-group span {
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.partner-ticker .partner-dot {
+  color: var(--gold);
+  opacity: 0.95;
+}
+
+.partner-ticker:hover .partner-ticker-track {
+  animation-play-state: paused;
+}
+
+@keyframes partnerTickerScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   CUSTOMER REVIEW SAMPLES
+   ============================================================ */
+.customer-review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  padding: 18px 20px 28px;
+}
+
+.sample-review-card {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sample-review-card .review-stars {
+  margin-bottom: 18px;
+}
+
+.sample-review-card .review-copy {
+  flex: 1;
+}
+
+.sample-review-label {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  color: #e8bd49;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   STEADY HANDS CREDIT
+   ============================================================ */
+.steadyhands-credit {
+  margin: 5px 0 0 !important;
+  font-size: 10px !important;
+  opacity: 0.9;
+}
+
+.steadyhands-credit a {
+  color: #f0c654 !important;
+  font-weight: 900;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .partner-ticker-group {
+    gap: 22px;
+    padding: 11px 12px;
+  }
+
+  .partner-ticker-group span {
+    font-size: 11px;
+  }
+
+  .customer-review-grid {
+    grid-template-columns: 1fr;
+    padding: 14px 14px 22px;
+  }
+
+  .sample-review-card {
+    min-height: 0;
+  }
+}
