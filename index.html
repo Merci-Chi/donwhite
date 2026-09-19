@@ -70,6 +70,11 @@
   height: auto;
   pointer-events: none;
   z-index: 99999;
+
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  perspective: 800px;
+
   will-change: transform, opacity;
 }
   </style>
@@ -556,78 +561,83 @@
       event.preventDefault();
       event.stopPropagation();
 
+      if (document.querySelector('.falling-maple-leaf')) return;
+
       const rect = mapleLeaf.getBoundingClientRect();
 
-      for (let i = 0; i < 18; i++) {
-        const leaf = document.createElement('img');
+      const leaf = document.createElement('img');
+      leaf.src = 'images/leaf.png';
+      leaf.className = 'falling-maple-leaf';
 
-        leaf.src = 'images/leaf.png';
-        leaf.className = 'falling-maple-leaf';
+      leaf.style.left = (rect.left + rect.width / 2 - 14) + 'px';
+      leaf.style.top = (rect.top + rect.height / 2 - 14) + 'px';
 
-        const startX =
-          rect.left +
-          rect.width / 2 +
-          (Math.random() * 80 - 40);
+      document.body.appendChild(leaf);
 
-        const startY =
-          rect.top +
-          rect.height / 2 +
-          (Math.random() * 20 - 10);
+      const fallDistance = window.innerHeight - rect.top + 80;
 
-        leaf.style.left = startX + 'px';
-        leaf.style.top = startY + 'px';
-
-        document.body.appendChild(leaf);
-
-        const drift = Math.random() * 240 - 120;
-        const fallDistance = window.innerHeight - startY + 100;
-        const rotation = Math.random() * 720 - 360;
-        const duration = 1800 + Math.random() * 1800;
-        const delay = Math.random() * 300;
-
-        leaf.animate(
-          [
-            {
-              transform: 'translate(0, 0) rotate(0deg)',
-              opacity: 1
-            },
-            {
-              transform:
-                `translate(${drift * 0.4}px, ${fallDistance * 0.45}px) rotate(${rotation * 0.45}deg)`,
-              opacity: 1,
-              offset: 0.55
-            },
-            {
-              transform:
-                `translate(${drift}px, ${fallDistance}px) rotate(${rotation}deg)`,
-              opacity: 0
-            }
-          ],
-          {
-            duration: duration,
-            delay: delay,
-            easing: 'ease-in',
-            fill: 'forwards'
-          }
-        );
-
-        setTimeout(() => {
-          leaf.remove();
-        }, duration + delay + 100);
-      }
-
-      mapleLeaf.animate(
+      const animation = leaf.animate(
         [
-          { transform: 'rotate(0deg) scale(1)' },
-          { transform: 'rotate(-15deg) scale(1.15)' },
-          { transform: 'rotate(12deg) scale(1.15)' },
-          { transform: 'rotate(0deg) scale(1)' }
+          {
+            transform:
+              'translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)',
+            opacity: 1
+          },
+          {
+            transform:
+              `translate3d(25px, ${fallDistance * 0.2}px, 0px)
+               rotateX(40deg)
+               rotateY(100deg)
+               rotateZ(45deg)`,
+            opacity: 1,
+            offset: 0.2
+          },
+          {
+            transform:
+              `translate3d(-30px, ${fallDistance * 0.4}px, 0px)
+               rotateX(90deg)
+               rotateY(210deg)
+               rotateZ(110deg)`,
+            opacity: 1,
+            offset: 0.4
+          },
+          {
+            transform:
+              `translate3d(35px, ${fallDistance * 0.6}px, 0px)
+               rotateX(150deg)
+               rotateY(320deg)
+               rotateZ(180deg)`,
+            opacity: 1,
+            offset: 0.6
+          },
+          {
+            transform:
+              `translate3d(-25px, ${fallDistance * 0.8}px, 0px)
+               rotateX(220deg)
+               rotateY(450deg)
+               rotateZ(270deg)`,
+            opacity: 0.95,
+            offset: 0.8
+          },
+          {
+            transform:
+              `translate3d(15px, ${fallDistance}px, 0px)
+               rotateX(300deg)
+               rotateY(600deg)
+               rotateZ(360deg)`,
+            opacity: 0
+          }
         ],
         {
-          duration: 350,
-          easing: 'ease-out'
+          duration: 7000,
+          easing: 'ease-in-out',
+          fill: 'forwards'
         }
       );
+
+      animation.onfinish = () => {
+        leaf.remove();
+      };
     });
   }
 </script>
