@@ -741,7 +741,7 @@
 
             {
               transform:
-                'translate3d(0px, 0px, 0px) rotateX(360deg) rotateY(540deg) rotateZ(0deg)'
+                'translate3d(0px, 0px, 0px) rotateX(360deg) rotateY(720deg) rotateZ(0deg)'
             }
           ],
           {
@@ -752,13 +752,13 @@
         );
 
         returnAnimation.onfinish = function () {
-          returnAnimation.cancel();
+        returnAnimation.cancel();
 
-          mapleLeaf.style.transform = '';
-          mapleLeaf.style.opacity = '';
+        mapleLeaf.style.removeProperty('transform');
+        mapleLeaf.style.removeProperty('opacity');
 
-          leafIsFalling = false;
-        };
+        leafIsFalling = false;
+      };
 
         returnAnimation.oncancel = function () {
           mapleLeaf.style.transform = '';
