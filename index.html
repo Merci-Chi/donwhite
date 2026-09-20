@@ -58,10 +58,17 @@
       .customer-review-samples { grid-template-columns: 1fr; }
       .partner-ticker-track { animation-duration: 18s; }
     }
-    .brand-leaf {
+    .brand-tagline-row .brand-leaf {
   cursor: pointer;
   position: relative;
   z-index: 10;
+
+  transform: translate3d(0px, 0px, 0px)
+             rotateX(0deg)
+             rotateY(0deg)
+             rotateZ(0deg);
+
+  transform-origin: center center;
 }
 
   </style>
