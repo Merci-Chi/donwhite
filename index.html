@@ -651,18 +651,6 @@
         const startAbove =
           -(freshRect.top + freshRect.height + 80);
 
-        mapleLeaf.style.transform =
-          `translate3d(-70px, ${startAbove}px, 0)
-           rotateX(80deg)
-           rotateY(120deg)
-           rotateZ(-30deg)`;
-
-        /*
-          Force the browser to apply the hidden position
-          before making the leaf visible again.
-        */
-        mapleLeaf.getBoundingClientRect();
-
         mapleLeaf.style.opacity = '1';
 
         const returnAnimation = mapleLeaf.animate(
@@ -741,8 +729,8 @@
 
             {
               transform:
-                'translate3d(0px, 0px, 0px) rotateX(360deg) rotateY(720deg) rotateZ(0deg)'
-            }
+                'translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)'
+          }
           ],
           {
             duration: 6500,
