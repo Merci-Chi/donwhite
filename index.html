@@ -70,7 +70,102 @@
 
   transform-origin: center center;
 }
+/* =========================
+   PROJECT GALLERY
+   ========================= */
 
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.projects-grid img {
+  width: 100%;
+  height: 260px;
+  display: block;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.projects-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.projects-page-numbers {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.projects-page-button,
+.projects-number-button {
+  border: 0;
+  background: #173f2f;
+  color: white;
+  min-width: 42px;
+  height: 42px;
+  padding: 0 13px;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    background 0.2s ease;
+}
+
+.projects-page-button:hover,
+.projects-number-button:hover {
+  transform: translateY(-2px);
+}
+
+.projects-number-button.active {
+  background: #e2ad35;
+  color: #173f2f;
+}
+
+.projects-page-button:disabled {
+  opacity: 0.3;
+  cursor: default;
+  transform: none;
+}
+
+.projects-loading,
+.projects-empty,
+.projects-error {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+@media (max-width: 800px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .projects-grid img {
+    height: 190px;
+    border-radius: 14px;
+  }
+
+  .projects-pagination {
+    margin-top: 24px;
+  }
+
+  .projects-page-button,
+  .projects-number-button {
+    min-width: 38px;
+    height: 38px;
+    padding: 0 11px;
+  }
+}
   </style>
 </head>
 <body>
@@ -201,7 +296,7 @@
 
         <div class="services-grid services-card-grid">
           <article class="service-card service-card-blue searchable-card">
-            <img src="images/4.png" alt="Lawn and yard care service" />
+            <img src="images/2.png" alt="Desert Forest Landscape yard care project" />
             <div class="service-card-body">
               <h3>Lawn &amp;<br>Yard Care</h3>
               <span class="service-accent"></span>
@@ -215,7 +310,7 @@
           </article>
 
           <article class="service-card service-card-cream searchable-card">
-            <img src="images/5.png" alt="Tree services" />
+            <img src="images/3.png" alt="Desert Forest Landscape tree service project" />
             <div class="service-card-body">
               <h3>Tree<br>Services</h3>
               <span class="service-accent"></span>
@@ -229,7 +324,7 @@
           </article>
 
           <article class="service-card service-card-olive searchable-card">
-            <img src="images/6.png" alt="New landscaping service" />
+            <img src="images/4.png" alt="Desert Forest Landscape landscaping project" />
             <div class="service-card-body">
               <h3>New<br>Landscaping</h3>
               <span class="service-accent"></span>
@@ -243,7 +338,7 @@
           </article>
 
           <article class="service-card service-card-rust searchable-card">
-            <img src="images/7.png" alt="Patios and walkways" />
+            <img src="images/5.png" alt="Desert Forest Landscape patio and walkway project" />
             <div class="service-card-body">
               <h3>Patios &amp;<br>Walkways</h3>
               <span class="service-accent"></span>
@@ -257,7 +352,7 @@
           </article>
 
           <article class="service-card service-card-tan searchable-card">
-            <img src="images/8.png" alt="Yard construction" />
+            <img src="images/6.png" alt="Desert Forest Landscape yard construction project" />
             <div class="service-card-body">
               <h3>Yard<br>Construction</h3>
               <span class="service-accent"></span>
@@ -271,7 +366,7 @@
           </article>
 
           <article class="service-card service-card-blue searchable-card">
-            <img src="images/9.png" alt="Irrigation and lighting" />
+            <img src="images/7.png" alt="Desert Forest Landscape irrigation and lighting project" />
             <div class="service-card-body">
               <h3>Irrigation &amp;<br>Lighting</h3>
               <span class="service-accent"></span>
@@ -325,29 +420,48 @@
             </article>
           </div>
         </div>
-        <div class="process-photo"><img src="images/3.png" alt="Completed landscape project" /></div>
+        <div class="process-photo"><img src="images/8.png" alt="Completed Desert Forest Landscape project" /></div>
       </div>
     </section>
 
     <section class="projects-section" id="projects">
-      <div class="site-width">
-        <div class="projects-heading-row">
-          <div>
-            <span class="section-kicker">OUR WORK</span>
-            <h2 class="projects-heading">Recent Projects</h2>
-          </div>
-        </div>
-        <div class="projects-grid">
-          <img src="images/10.png" alt="Recent project one" />
-          <img src="images/11.png" alt="Recent project two" />
-          <img src="images/12.png" alt="Recent project three" />
-          <img src="images/13.png" alt="Recent project four" />
-          <img src="images/14.png" alt="Recent project five" />
-          <img src="images/15.png" alt="Recent project six" />
-        </div>
-        <div class="project-button-row"><a href="#contact" class="small-button center-button">VIEW MORE PROJECTS <img src="images/leaf.png" alt="" aria-hidden="true"></a></div>
+  <div class="site-width">
+
+    <div class="projects-heading-row">
+      <div>
+        <span class="section-kicker">OUR WORK</span>
+        <h2 class="projects-heading">Recent Projects</h2>
       </div>
-    </section>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+      <!-- Images from the GitHub Projects folder are inserted here automatically -->
+    </div>
+
+    <div class="projects-pagination" id="projectsPagination">
+      <button
+        class="projects-page-button"
+        id="projectsPrevious"
+        type="button"
+        aria-label="Previous projects"
+      >
+        ‹
+      </button>
+
+      <div class="projects-page-numbers" id="projectsPageNumbers"></div>
+
+      <button
+        class="projects-page-button"
+        id="projectsNext"
+        type="button"
+        aria-label="Next projects"
+      >
+        ›
+      </button>
+    </div>
+
+  </div>
+</section>
 <section class="testimonials-section" id="testimonials">
       <div class="site-width">
         <div class="testimonial-heading redesigned-heading">
@@ -768,6 +882,245 @@
       };
     });
   }
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  const projectsGrid = document.getElementById('projectsGrid');
+  const projectsPagination = document.getElementById('projectsPagination');
+  const projectsPrevious = document.getElementById('projectsPrevious');
+  const projectsNext = document.getElementById('projectsNext');
+  const projectsPageNumbers = document.getElementById('projectsPageNumbers');
+
+  if (!projectsGrid) return;
+
+  /*
+    This folder is read directly from your GitHub repository.
+
+    Put project images here:
+    donwhite/Projects/
+
+    Supported:
+    PNG
+    JPG / JPEG
+    WEBP
+    GIF
+    AVIF
+  */
+
+  const githubFolderAPI =
+    'https://api.github.com/repos/Merci-Chi/donwhite/contents/Projects';
+
+  let projectImages = [];
+  let currentProjectPage = 1;
+
+  function isMobileProjectsView() {
+    return window.matchMedia('(max-width: 800px)').matches;
+  }
+
+  function projectsPerPage() {
+    return isMobileProjectsView() ? 6 : 5;
+  }
+
+  function naturalFileSort(a, b) {
+    return a.name.localeCompare(
+      b.name,
+      undefined,
+      {
+        numeric: true,
+        sensitivity: 'base'
+      }
+    );
+  }
+
+  function renderProjects() {
+
+    const perPage = projectsPerPage();
+    const totalPages = Math.ceil(projectImages.length / perPage);
+
+    if (totalPages === 0) {
+      projectsGrid.innerHTML =
+        '<p class="projects-empty">No project photos have been added yet.</p>';
+
+      projectsPagination.style.display = 'none';
+      return;
+    }
+
+    if (currentProjectPage > totalPages) {
+      currentProjectPage = totalPages;
+    }
+
+    if (currentProjectPage < 1) {
+      currentProjectPage = 1;
+    }
+
+    const start = (currentProjectPage - 1) * perPage;
+    const end = start + perPage;
+
+    const currentImages = projectImages.slice(start, end);
+
+    projectsGrid.innerHTML = '';
+
+    currentImages.forEach(function (file, index) {
+
+      const image = document.createElement('img');
+
+      image.src = file.download_url;
+
+      image.alt =
+        'Desert Forest Landscape project ' +
+        (start + index + 1);
+
+      image.loading = 'lazy';
+
+      projectsGrid.appendChild(image);
+    });
+
+    renderProjectPagination(totalPages);
+  }
+
+  function renderProjectPagination(totalPages) {
+
+    if (totalPages <= 1) {
+      projectsPagination.style.display = 'none';
+      return;
+    }
+
+    projectsPagination.style.display = 'flex';
+
+    projectsPrevious.disabled = currentProjectPage === 1;
+    projectsNext.disabled = currentProjectPage === totalPages;
+
+    projectsPageNumbers.innerHTML = '';
+
+    for (let page = 1; page <= totalPages; page++) {
+
+      const button = document.createElement('button');
+
+      button.type = 'button';
+      button.className = 'projects-number-button';
+      button.textContent = page;
+
+      if (page === currentProjectPage) {
+        button.classList.add('active');
+        button.setAttribute('aria-current', 'page');
+      }
+
+      button.addEventListener('click', function () {
+        currentProjectPage = page;
+        renderProjects();
+
+        document
+          .getElementById('projects')
+          .scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+      });
+
+      projectsPageNumbers.appendChild(button);
+    }
+  }
+
+  projectsPrevious.addEventListener('click', function () {
+
+    if (currentProjectPage <= 1) return;
+
+    currentProjectPage--;
+
+    renderProjects();
+
+    document
+      .getElementById('projects')
+      .scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+  });
+
+  projectsNext.addEventListener('click', function () {
+
+    const totalPages =
+      Math.ceil(projectImages.length / projectsPerPage());
+
+    if (currentProjectPage >= totalPages) return;
+
+    currentProjectPage++;
+
+    renderProjects();
+
+    document
+      .getElementById('projects')
+      .scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+  });
+
+  async function loadProjectImages() {
+
+    projectsGrid.innerHTML =
+      '<p class="projects-loading">Loading projects...</p>';
+
+    try {
+
+      const response = await fetch(githubFolderAPI);
+
+      if (!response.ok) {
+        throw new Error(
+          'GitHub returned ' + response.status
+        );
+      }
+
+      const files = await response.json();
+
+      projectImages = files
+        .filter(function (file) {
+
+          if (file.type !== 'file') {
+            return false;
+          }
+
+          return /\.(png|jpe?g|webp|gif|avif)$/i.test(file.name);
+
+        })
+        .sort(naturalFileSort);
+
+      renderProjects();
+
+    } catch (error) {
+
+      console.error(
+        'Could not load project images:',
+        error
+      );
+
+      projectsGrid.innerHTML =
+        '<p class="projects-error">Project photos could not be loaded.</p>';
+
+      projectsPagination.style.display = 'none';
+    }
+  }
+
+  let previousMobileState = isMobileProjectsView();
+
+  window.addEventListener('resize', function () {
+
+    const currentMobileState = isMobileProjectsView();
+
+    if (currentMobileState !== previousMobileState) {
+
+      previousMobileState = currentMobileState;
+
+      currentProjectPage = 1;
+
+      renderProjects();
+    }
+  });
+
+  loadProjectImages();
+
+});
 </script>
 <script src="js.js"></script>
 
