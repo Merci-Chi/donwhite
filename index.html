@@ -77,7 +77,10 @@
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 18px;
+  gap: 12px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .projects-grid img {
@@ -101,7 +104,16 @@
   align-items: center;
   gap: 8px;
 }
-
+.projects-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 42px;
+  font-weight: 800;
+  color: #173f2f;
+  user-select: none;
+}
 .projects-page-button,
 .projects-number-button {
   border: 0;
@@ -165,6 +177,32 @@
     height: 38px;
     padding: 0 11px;
   }
+
+  .projects-ellipsis {
+    height: 38px;
+    min-width: 16px;
+    font-size: 14px;
+  }
+}
+.projects-section,
+.projects-section .site-width,
+.projects-grid {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.projects-section {
+  overflow-x: hidden;
+}
+
+.projects-grid > * {
+  min-width: 0;
+}
+
+.projects-grid img {
+  max-width: 100%;
 }
   </style>
 </head>
@@ -981,121 +1019,195 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function renderProjectPagination(totalPages) {
 
-    if (totalPages <= 1) {
-      projectsPagination.style.display = 'none';
-      return;
+  if (totalPages <= 1) {
+    projectsPagination.style.display = 'none';
+    return;
+  }
+
+  projectsPagination.style.display = 'flex';
+
+  // Left arrow = jump directly to FIRST page
+  projectsPrevious.disabled = currentProjectPage === 1;
+
+  // Right arrow = jump directly to LAST page
+  projectsNext.disabled = currentProjectPage === totalPages;
+
+  projectsPageNumbers.innerHTML = '';
+
+  function addPageButton(page) {
+    const button = document.createElement('button');
+
+    button.type = 'button';
+    button.className = 'projects-number-button';
+    button.textContent = page;
+
+    if (page === currentProjectPage) {
+      button.classList.add('active');
+      button.setAttribute('aria-current', 'page');
     }
 
-    projectsPagination.style.display = 'flex';
+    button.addEventListener('click', function () {
+      currentProjectPage = page;
+      renderProjects();
+    });
 
-    projectsPrevious.disabled = currentProjectPage === 1;
-    projectsNext.disabled = currentProjectPage === totalPages;
+    projectsPageNumbers.appendChild(button);
+  }
 
-    projectsPageNumbers.innerHTML = '';
+  function addEllipsis() {
+    const ellipsis = document.createElement('span');
+
+    ellipsis.className = 'projects-ellipsis';
+    ellipsis.textContent = '...';
+    ellipsis.setAttribute('aria-hidden', 'true');
+
+    projectsPageNumbers.appendChild(ellipsis);
+  }
+
+  // 5 pages or fewer: show every page
+  if (totalPages <= 5) {
 
     for (let page = 1; page <= totalPages; page++) {
-
-      const button = document.createElement('button');
-
-      button.type = 'button';
-      button.className = 'projects-number-button';
-      button.textContent = page;
-
-      if (page === currentProjectPage) {
-        button.classList.add('active');
-        button.setAttribute('aria-current', 'page');
-      }
-
-      button.addEventListener('click', function () {
-        currentProjectPage = page;
-        renderProjects();
-      });
-
-      projectsPageNumbers.appendChild(button);
+      addPageButton(page);
     }
+
+    return;
   }
 
-  projectsPrevious.addEventListener('click', function () {
+  // Near the beginning:
+  // 1 2 3 ... 35
+  if (currentProjectPage <= 3) {
 
-    if (currentProjectPage <= 1) return;
+    addPageButton(1);
+    addPageButton(2);
+    addPageButton(3);
 
-    currentProjectPage--;
+    addEllipsis();
+
+    addPageButton(totalPages);
+
+    return;
+  }
+
+  // Near the end:
+  // 1 ... 33 34 35
+  if (currentProjectPage >= totalPages - 2) {
+
+    addPageButton(1);
+
+    addEllipsis();
+
+    addPageButton(totalPages - 2);
+    addPageButton(totalPages - 1);
+    addPageButton(totalPages);
+
+    return;
+  }
+
+  // Somewhere in the middle:
+  // 1 ... 14 15 16 ... 35
+
+  addPageButton(1);
+
+  addEllipsis();
+
+  addPageButton(currentProjectPage - 1);
+  addPageButton(currentProjectPage);
+  addPageButton(currentProjectPage + 1);
+
+  addEllipsis();
+
+  addPageButton(totalPages);
+}
+
+
+// LEFT ARROW = FIRST PAGE
+projectsPrevious.addEventListener('click', function () {
+
+  if (currentProjectPage === 1) return;
+
+  currentProjectPage = 1;
+
+  renderProjects();
+});
+
+
+// RIGHT ARROW = LAST PAGE
+projectsNext.addEventListener('click', function () {
+
+  const totalPages =
+    Math.ceil(projectImages.length / projectsPerPage());
+
+  if (currentProjectPage === totalPages) return;
+
+  currentProjectPage = totalPages;
+
+  renderProjects();
+});
+async function loadProjectImages() {
+
+  projectsGrid.innerHTML =
+    '<p class="projects-loading">Loading projects...</p>';
+
+  try {
+
+    const response = await fetch(githubFolderAPI);
+
+    if (!response.ok) {
+      throw new Error(
+        'GitHub returned ' + response.status
+      );
+    }
+
+    const files = await response.json();
+
+    projectImages = files
+      .filter(function (file) {
+
+        if (file.type !== 'file') {
+          return false;
+        }
+
+        return /\.(png|jpe?g|webp|gif|avif)$/i.test(file.name);
+
+      })
+      .sort(naturalFileSort);
 
     renderProjects();
-  });
 
-  projectsNext.addEventListener('click', function () {
+  } catch (error) {
 
-    const totalPages =
-      Math.ceil(projectImages.length / projectsPerPage());
-
-    if (currentProjectPage >= totalPages) return;
-
-    currentProjectPage++;
-
-    renderProjects();
-  });
-
-  async function loadProjectImages() {
+    console.error(
+      'Could not load project images:',
+      error
+    );
 
     projectsGrid.innerHTML =
-      '<p class="projects-loading">Loading projects...</p>';
+      '<p class="projects-error">Project photos could not be loaded.</p>';
 
-    try {
-
-      const response = await fetch(githubFolderAPI);
-
-      if (!response.ok) {
-        throw new Error(
-          'GitHub returned ' + response.status
-        );
-      }
-
-      const files = await response.json();
-
-      projectImages = files
-        .filter(function (file) {
-
-          if (file.type !== 'file') {
-            return false;
-          }
-
-          return /\.(png|jpe?g|webp|gif|avif)$/i.test(file.name);
-
-        })
-        .sort(naturalFileSort);
-
-      renderProjects();
-
-    } catch (error) {
-
-      console.error(
-        'Could not load project images:',
-        error
-      );
-
-      projectsGrid.innerHTML =
-        '<p class="projects-error">Project photos could not be loaded.</p>';
-
-      projectsPagination.style.display = 'none';
-    }
+    projectsPagination.style.display = 'none';
   }
+}
 
-  let previousMobileState = isMobileProjectsView();
 
-  window.addEventListener('resize', function () {
+let previousMobileState = isMobileProjectsView();
 
-    const currentMobileState = isMobileProjectsView();
+window.addEventListener('resize', function () {
 
-    if (currentMobileState !== previousMobileState) {
+  const currentMobileState = isMobileProjectsView();
 
-      previousMobileState = currentMobileState;
+  if (currentMobileState !== previousMobileState) {
 
-      currentProjectPage = 1;
+    previousMobileState = currentMobileState;
 
-      renderProjects();
-    }
-  });
+    currentProjectPage = 1;
+
+    renderProjects();
+  }
+});
+
+
+loadProjectImages();
 
   loadProjectImages();
 
