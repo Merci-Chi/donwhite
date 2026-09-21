@@ -191,6 +191,7 @@ const HEADER_TAB_POSITIONS = {
   home: 0,
   about: -20,
   services: -60,
+  projects: -20,
   testimonials: -10,
   contact: 5
 };
