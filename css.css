@@ -6845,3 +6845,55 @@ textarea {
     font-size: 12.5px !important;
   }
 }
+/* Footer logo + real brand images */
+
+.footer-brand-image-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+}
+
+.footer-brand-text-image {
+  display: block;
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.footer-brand-slogan-image {
+  display: block;
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+/* Mobile footer brand images */
+
+.mobile-footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile-footer-brand-text {
+  display: block;
+  width: 220px;
+  max-width: 80%;
+  height: auto;
+  object-fit: contain;
+  margin-top: 10px;
+}
+
+.mobile-footer-brand-slogan {
+  display: block;
+  width: 175px;
+  max-width: 70%;
+  height: auto;
+  object-fit: contain;
+  margin-top: 5px;
+}
