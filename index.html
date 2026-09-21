@@ -1009,13 +1009,6 @@ document.addEventListener('DOMContentLoaded', function () {
       button.addEventListener('click', function () {
         currentProjectPage = page;
         renderProjects();
-
-        document
-          .getElementById('projects')
-          .scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
       });
 
       projectsPageNumbers.appendChild(button);
@@ -1029,13 +1022,6 @@ document.addEventListener('DOMContentLoaded', function () {
     currentProjectPage--;
 
     renderProjects();
-
-    document
-      .getElementById('projects')
-      .scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
   });
 
   projectsNext.addEventListener('click', function () {
@@ -1048,13 +1034,6 @@ document.addEventListener('DOMContentLoaded', function () {
     currentProjectPage++;
 
     renderProjects();
-
-    document
-      .getElementById('projects')
-      .scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
   });
 
   async function loadProjectImages() {
