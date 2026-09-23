@@ -47,9 +47,45 @@
 
 
   <style>
-    .partner-ticker { overflow: hidden; background: #173f2f; color: #fff; white-space: nowrap; border-top: 1px solid rgba(255,255,255,.12); border-bottom: 1px solid rgba(255,255,255,.12); }
-    .partner-ticker-track { display: inline-flex; align-items: center; gap: 28px; min-width: max-content; padding: 12px 0; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; animation: partnerTicker 24s linear infinite; }
-    @keyframes partnerTicker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    /* Partner banner sits directly below the fixed header + search bar. */
+    .partner-ticker {
+      overflow: hidden;
+      background: #173f2f;
+      color: #fff;
+      white-space: nowrap;
+      border-top: 1px solid rgba(255,255,255,.12);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      margin-top: 162px;
+      position: relative;
+      z-index: 5;
+    }
+    .partner-ticker-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 28px;
+      min-width: max-content;
+      padding: 12px 0;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      animation: partnerTicker 24s linear infinite;
+      will-change: transform;
+    }
+    @keyframes partnerTicker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* The spacing belongs above the ticker now, not above the hero. */
+    main { padding-top: 0 !important; }
+
+    @media (max-width: 1100px) {
+      .partner-ticker { margin-top: 146px; }
+    }
+
+    @media (max-width: 760px) {
+      .partner-ticker { margin-top: 130px; }
+    }
     .customer-review-samples { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
     .customer-review-samples .review-card { height: 100%; }
     .steadyhands-credit { margin: 8px 0 0; font-size: .85rem; opacity: .86; }
